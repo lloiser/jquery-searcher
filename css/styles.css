@@ -1,0 +1,82 @@
+a:hover
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+header
+{
+	position: relative;
+}
+
+header ul
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	height: 40px;
+
+	list-style: none;
+	text-align: center;
+	
+	background: #eee;
+	background: -moz-linear-gradient(top, #fafafa 0%, #dddddd 100%);
+	background: -ms-linear-gradient(top, #fafafa 0%,#dddddd 100%);
+	background: -o-linear-gradient(top, #fafafa 0%,#dddddd 100%);
+	background: -webkit-linear-gradient(top, #fafafa 0%,#dddddd 100%);
+	background: linear-gradient(top, #fafafa 0%,#dddddd 100%);
+	
+	border-radius: 5px;
+	border: 1px solid #d2d2d2;
+	box-shadow: inset #fff 0 1px 0, inset rgba(0, 0, 0, 0.03) 0 -1px 0;
+}
+
+header li
+{
+	width: 90px;
+	height: 100%;
+	border-left: 1px solid #d2d2d2;
+	float: left;
+}
+
+header li:first-child
+{
+	border-left: none;
+}
+
+header ul a
+{
+	line-height: 1;
+	font-size: 11px;
+	color: #999;
+	display: block;
+	padding-top: 6px;
+}
+
+header ul a strong
+{
+	font-size: 14px;
+	display: block;
+	color: #222;
+}
+
+.panel-body
+{
+	height: 500px;
+	overflow-y: scroll;
+}
+
+#example-table .nr     { width: 8%; }
+#example-table .title  { width: 43%; }
+#example-table .artist { width: 40%; }
+#example-table .date   { width: 9%; }
+
+#example-list li > span:before
+{
+	content: " - ";
+}
+#example-list li > span:first-child:before
+{
+	content: "";
+}
