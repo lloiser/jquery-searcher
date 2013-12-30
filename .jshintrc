@@ -1,0 +1,12 @@
+{
+    "strict":    true,
+    "smarttabs": true,
+    "undef":     true,
+    "unused":    true,
+    "lastsemic": true,
+    "maxlen":    100,
+    "jquery":    true,
+    "browser":   true,
+    "noarg":     true,
+    "noempty":   true
+}

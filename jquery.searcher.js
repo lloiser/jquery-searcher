@@ -1,15 +1,8 @@
-/*
- * TODO:
- * events (or onchange/...)
- * documentation
- * delay for the input events
- * (no inputSelector -> create input - really?)
- */
-
 (function IIFE($, window, document, undefined) {
 	"use strict";
 
 	var pluginName = "searcher",
+		dataKey = "plugin_" + pluginName,
 		defaults = {
 			itemSelector: "",
 			textSelector: "",
@@ -17,7 +10,7 @@
 			caseSensitive: false
 		};
 
-	function Plugin(element, options)
+	function Searcher(element, options)
 	{
 		this.element = element;
 
@@ -26,25 +19,25 @@
 		this._create();
 	}
 
-	Plugin.prototype = {
+	Searcher.prototype = {
 		_create: function()
 		{
 			this._$element = $(this.element);
 
 			// find the input and listen to various events
-			this._$input = $(this.options.inputSelector).on("input change keyup", $.proxy(this._onValueChange, this));
+			this._$input = $(this.options.inputSelector)
+				.on("input change keyup", $.proxy(this._onValueChange, this));
 
 			// remember the last entered value
 			this._lastValue = "";
 		},
-		_onValueChange: function(event)
+		_onValueChange: function()
 		{
 			var options = this.options,
 				itemSelector = options.itemSelector,
 				textSelector = options.textSelector,
-				caseSensitive = options.caseSensitive;
-
-			var value = this._$input.val();
+				caseSensitive = options.caseSensitive,
+				value = this._$input.val();
 
 			// lower all texts for case insensitive searches
 			if (!caseSensitive)
@@ -60,8 +53,9 @@
 				.find(itemSelector)
 				.each(function toggleItem() {
 					var containsText = false,
-						$item = $(this),
-						$textElements = $item.find(textSelector)
+						$item = $(this);
+
+					$item.find(textSelector)
 							.each(function compareText() {
 								var text = $(this).text();
 
@@ -81,11 +75,14 @@
 
 	$.fn[pluginName] = function pluginHandler(options) {
 		return this.each(function() {
-			if (!$.data(this, "plugin_" + pluginName))
-			{
-				$.data(this, "plugin_" + pluginName, new Plugin(this, options));
-			}
+			var searcher = $.data(this, dataKey);
+			// either create a new searcher
+			if (!searcher)
+				$.data(this, dataKey, new Searcher(this, options));
+			// or update the options
+			else
+				$.extend(searcher.options, options);
 		});
 	};
 
-})(jQuery, window, document);
+}(jQuery, window, document));
