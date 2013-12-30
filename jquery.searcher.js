@@ -1,3 +1,11 @@
+/*
+ * TODO:
+ * events (or onchange/...)
+ * documentation
+ * delay for the input events
+ * (no inputSelector -> create input - really?)
+ */
+
 (function IIFE($, window, document, undefined) {
 	"use strict";
 
