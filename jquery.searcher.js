@@ -4,10 +4,13 @@
 	var pluginName = "searcher",
 		dataKey = "plugin_" + pluginName,
 		defaults = {
-			itemSelector: "",
-			textSelector: "",
+			itemSelector: "tbody > tr",
+			textSelector: "td",
 			inputSelector: "",
-			caseSensitive: false
+			caseSensitive: false,
+			toggle: function(item, containsText) {
+				$(item).toggle(containsText);
+			}
 		};
 
 	function Searcher(element, options)
@@ -25,8 +28,8 @@
 			this._$element = $(this.element);
 
 			// find the input and listen to various events
-			this._$input = $(this.options.inputSelector)
-				.on("input change keyup", $.proxy(this._onValueChange, this));
+			var fn = $.proxy(this._onValueChange, this);
+			this._$input = $(this.options.inputSelector).bind("input change keyup", fn);
 
 			// remember the last entered value
 			this._lastValue = "";
@@ -34,12 +37,12 @@
 		_onValueChange: function()
 		{
 			var options = this.options,
-				itemSelector = options.itemSelector,
 				textSelector = options.textSelector,
 				caseSensitive = options.caseSensitive,
+				toggle = options.toggle,
 				value = this._$input.val();
 
-			// lower all texts for case insensitive searches
+			// lower text for case insensitive searches
 			if (!caseSensitive)
 				value = value.toLowerCase();
 
@@ -47,28 +50,26 @@
 				return; // nothing has changed
 
 			this._lastValue = value;
-
-			// get all items
+			
 			this._$element
-				.find(itemSelector)
-				.each(function toggleItem() {
-					var containsText = false,
-						$item = $(this);
+				.find(options.itemSelector)
+				.each(function eachItem() {
+					var $item = $(this),
+						$textElements = $item;
 
-					$item.find(textSelector)
-							.each(function compareText() {
-								var text = $(this).text();
+					if (textSelector)
+						$textElements = $item.find(textSelector);
 
-								// lower all texts for case insensitive searches
-								if (!caseSensitive)
-									text = text.toLowerCase();
+					$textElements = $textElements.filter(function eachTextElements() {
+						// lower all texts for case insensitive searches
+						var text = $(this).text();
+						if (!caseSensitive)
+							text = text.toLowerCase();
 
-								// check if the text contains the entered text
-								containsText = text.indexOf(value) >= 0;
-								return !containsText; // end each loop on true
-							});
+						return text.indexOf(value) >= 0;
+					});
 
-					$item.toggle(containsText);
+					toggle(this, $textElements.length > 0);
 				});
 		}
 	};
