@@ -2,14 +2,18 @@
 	"use strict";
 
 	var pluginName = "searcher",
+		dataKey = "plugin_" + pluginName,
 		defaults = {
-			itemSelector: "",
-			textSelector: "",
+			itemSelector: "tbody > tr",
+			textSelector: "td",
 			inputSelector: "",
-			caseSensitive: false
+			caseSensitive: false,
+			toggle: function(item, containsText) {
+				$(item).toggle(containsText);
+			}
 		};
 
-	function Plugin(element, options)
+	function Searcher(element, options)
 	{
 		this.element = element;
 
@@ -18,27 +22,27 @@
 		this._create();
 	}
 
-	Plugin.prototype = {
+	Searcher.prototype = {
 		_create: function()
 		{
 			this._$element = $(this.element);
 
 			// find the input and listen to various events
-			this._$input = $(this.options.inputSelector).on("input change keyup", $.proxy(this._onValueChange, this));
+			var fn = $.proxy(this._onValueChange, this);
+			this._$input = $(this.options.inputSelector).bind("input change keyup", fn);
 
 			// remember the last entered value
 			this._lastValue = "";
 		},
-		_onValueChange: function(event)
+		_onValueChange: function()
 		{
 			var options = this.options,
-				itemSelector = options.itemSelector,
 				textSelector = options.textSelector,
-				caseSensitive = options.caseSensitive;
+				caseSensitive = options.caseSensitive,
+				toggle = options.toggle,
+				value = this._$input.val();
 
-			var value = this._$input.val();
-
-			// lower all texts for case insensitive searches
+			// lower text for case insensitive searches
 			if (!caseSensitive)
 				value = value.toLowerCase();
 
@@ -46,38 +50,40 @@
 				return; // nothing has changed
 
 			this._lastValue = value;
-
-			// get all items
+			
 			this._$element
-				.find(itemSelector)
-				.each(function toggleItem() {
-					var containsText = false,
-						$item = $(this),
-						$textElements = $item.find(textSelector)
-							.each(function compareText() {
-								var text = $(this).text();
+				.find(options.itemSelector)
+				.each(function eachItem() {
+					var $item = $(this),
+						$textElements = $item;
 
-								// lower all texts for case insensitive searches
-								if (!caseSensitive)
-									text = text.toLowerCase();
+					if (textSelector)
+						$textElements = $item.find(textSelector);
 
-								// check if the text contains the entered text
-								containsText = text.indexOf(value) >= 0;
-								return !containsText; // end each loop on true
-							});
+					$textElements = $textElements.filter(function eachTextElements() {
+						// lower all texts for case insensitive searches
+						var text = $(this).text();
+						if (!caseSensitive)
+							text = text.toLowerCase();
 
-					$item.toggle(containsText);
+						return text.indexOf(value) >= 0;
+					});
+
+					toggle(this, $textElements.length > 0);
 				});
 		}
 	};
 
 	$.fn[pluginName] = function pluginHandler(options) {
 		return this.each(function() {
-			if (!$.data(this, "plugin_" + pluginName))
-			{
-				$.data(this, "plugin_" + pluginName, new Plugin(this, options));
-			}
+			var searcher = $.data(this, dataKey);
+			// either create a new searcher
+			if (!searcher)
+				$.data(this, dataKey, new Searcher(this, options));
+			// or update the options
+			else
+				$.extend(searcher.options, options);
 		});
 	};
 
-})(jQuery, window, document);
+}(jQuery, window, document));
