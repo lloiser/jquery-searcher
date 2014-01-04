@@ -1,279 +1,454 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>jquery searcher</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<!-- TODO: remove http: -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery.searcher.js"></script>
-</head>
-<body>
-	<div class="container">
-		<header>
-			<h1>jquery searcher</h1>
-			<h2></h2>
+	<head>
+		<title>jQuery Searcher Plugin by lloiser</title>
 
-			<ul>
-				<li>
-					<a href="https://github.com/lloiser/jquery-searcher/zipball/master">Download <strong>ZIP File</strong></a>
-				</li>
-				<li>
-					<a href="https://github.com/lloiser/jquery-searcher/tarball/master">Download <strong>TAR Ball</strong></a>
-				</li>
-				<li>
-					<a href="https://github.com/lloiser/jquery-searcher">View On <strong>GitHub</strong></a>
-				</li>
-			</ul>
-		</header>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-		<h2>Examples</h2>
-		<section class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">Table</h3>
-			</div>
-			<div class="panel-body">
-				<label>Enter any search text: <input id="example-table-input" type="text" /></label>
-				<table id="example-table" class="table">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/pygment_trac.css">
+
+		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.searcher.js"></script>
+		<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<div class="wrapper">
+			<header class="without-description">
+				<h1>jQuery Searcher Plugin</h1>
+				<p>The jQuery Searcher Plugin connects any list-like data with an input for searching.</p>
+				<p class="view"><a href="https://github.com/lloiser/jquery-searcher">View the Project on GitHub <small>at http://github.com/lloiser/jquery-searcher</small></a></p>
+				<ul>
+					<li><a href="https://github.com/lloiser/jquery-searcher/zipball/master">Download <strong>ZIP File</strong></a></li>
+					<li><a href="https://github.com/lloiser/jquery-searcher/tarball/master">Download <strong>TAR Ball</strong></a></li>
+					<li><a href="https://github.com/lloiser/jquery-searcher">View On <strong>GitHub</strong></a></li>
+				</ul>
+			</header>
+			<section>
+
+				<!-- search for the whole page here?! -->
+
+				<p>Lets imagine that we are showing a list of the 50 greatest songs of all time (thanks Rolling Stone Magazine). The following tabs show different ways on how to display them including a input for searching using the jQuery Searcher Plugin.</p>
+
+				<ul class="tabs">
+					<li class="active" data-tab="card">Card View</li>
+					<li data-tab="table">Table</li>
+					<li data-tab="list">List</li>
+				</ul>
+
+<!--
+  |		CARD STYLE
+ -->
+
+				<div class="tab-body card active">
+
+					<h2 class="tab-header">Card View</h2>
+
+					<div class="example">
+						<label>Search for: <input id="cardsearchinput" type="text" /></label>
+						<div id="carddata">
+							<div class="card"><div class="nr">#1</div><div class="title">Like a Rolling Stone</div><div class="artist">Bob Dylan</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#2</div><div class="title">(I Can't Get No) Satisfaction </div><div class="artist">The Rolling Stones</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#3</div><div class="title">Imagine</div><div class="artist">John Lennon</div><div class="date">1971</div></div>
+							<div class="card"><div class="nr">#4</div><div class="title">What's Going On</div><div class="artist">Marvin Gaye</div><div class="date">1971</div></div>
+							<div class="card"><div class="nr">#5</div><div class="title">Respect</div><div class="artist">Aretha Franklin</div><div class="date">1967</div></div>
+							<div class="card"><div class="nr">#6</div><div class="title">Good Vibrations</div><div class="artist">The Beach Boys</div><div class="date">1966</div></div>
+							<div class="card"><div class="nr">#7</div><div class="title">Johnny B. Goode</div><div class="artist">Chuck Berry</div><div class="date">1958</div></div>
+							<div class="card"><div class="nr">#8</div><div class="title">Hey Jude</div><div class="artist">The Beatles</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#9</div><div class="title">Smells Like Teen Spirit</div><div class="artist">Nirvana</div><div class="date">1991</div></div>
+							<div class="card"><div class="nr">#10</div><div class="title">What'd I Say</div><div class="artist">Ray Charles</div><div class="date">1959</div></div>
+							<div class="card"><div class="nr">#11</div><div class="title">My Generation</div><div class="artist">The Who</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#12</div><div class="title">A Change Is Gonna Come</div><div class="artist">Sam Cooke</div><div class="date">1964</div></div>
+							<div class="card"><div class="nr">#13</div><div class="title">Yesterday</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#14</div><div class="title">Blowin' in the Wind</div><div class="artist">Bob Dylan</div><div class="date">1963</div></div>
+							<div class="card"><div class="nr">#15</div><div class="title">London Calling</div><div class="artist">The Clash</div><div class="date">1980</div></div>
+							<div class="card"><div class="nr">#16</div><div class="title">I Want to Hold Your Hand</div><div class="artist">The Beatles</div><div class="date">1963</div></div>
+							<div class="card"><div class="nr">#17</div><div class="title">Purple Haze</div><div class="artist">Jimi Hendrix</div><div class="date">1967</div></div>
+							<div class="card"><div class="nr">#18</div><div class="title">Maybellene</div><div class="artist">Chuck Berry</div><div class="date">1955</div></div>
+							<div class="card"><div class="nr">#19</div><div class="title">Hound Dog</div><div class="artist">Elvis Presley</div><div class="date">1956</div></div>
+							<div class="card"><div class="nr">#20</div><div class="title">Let It Be</div><div class="artist">The Beatles</div><div class="date">1970</div></div>
+							<div class="card"><div class="nr">#21</div><div class="title">Born to Run</div><div class="artist">Bruce Springsteen</div><div class="date">1975</div></div>
+							<div class="card"><div class="nr">#22</div><div class="title">Be My Baby</div><div class="artist">The Ronettes</div><div class="date">1963</div></div>
+							<div class="card"><div class="nr">#23</div><div class="title">In My Life</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#24</div><div class="title">People Get Ready</div><div class="artist">The Impressions</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#25</div><div class="title">God Only Knows</div><div class="artist">The Beach Boys</div><div class="date">1966</div></div>
+							<div class="card"><div class="nr">#26</div><div class="title">A Day in the Life</div><div class="artist">The Beatles</div><div class="date">1967</div></div>
+							<div class="card"><div class="nr">#27</div><div class="title">Layla</div><div class="artist">Derek and the Dominos</div><div class="date">1970</div></div>
+							<div class="card"><div class="nr">#28</div><div class="title">(Sittin' on) the Dock of the Bay</div><div class="artist">Otis Redding</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#29</div><div class="title">Help!</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+							<div class="card"><div class="nr">#30</div><div class="title">I Walk the Line</div><div class="artist">Johnny Cash</div><div class="date">1956</div></div>
+							<div class="card"><div class="nr">#31</div><div class="title">Stairway to Heaven</div><div class="artist">Led Zeppelin</div><div class="date">1971</div></div>
+							<div class="card"><div class="nr">#32</div><div class="title">Sympathy for the Devil</div><div class="artist">The Rolling Stones</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#33</div><div class="title">River Deep, Mountain High</div><div class="artist">Tina Turner</div><div class="date">1966</div></div>
+							<div class="card"><div class="nr">#34</div><div class="title">You've Lost That Lovin' Feeling</div><div class="artist">Righteous Brothers</div><div class="date">1964</div></div>
+							<div class="card"><div class="nr">#35</div><div class="title">Light My Fire</div><div class="artist">The Doors</div><div class="date">1967</div></div>
+							<div class="card"><div class="nr">#36</div><div class="title">One</div><div class="artist">U2</div><div class="date">1991</div></div>
+							<div class="card"><div class="nr">#37</div><div class="title">No Woman, No Cry</div><div class="artist">Bob Marley</div><div class="date">1975</div></div>
+							<div class="card"><div class="nr">#38</div><div class="title">Gimme Shelter</div><div class="artist">The Rolling Stones</div><div class="date">1969</div></div>
+							<div class="card"><div class="nr">#39</div><div class="title">That'll Be the Day</div><div class="artist">Buddy Holly</div><div class="date">1957</div></div>
+							<div class="card"><div class="nr">#40</div><div class="title">Dancin' in the Sdiveets</div><div class="artist">Martha and the Vandellas</div><div class="date">1964</div></div>
+							<div class="card"><div class="nr">#41</div><div class="title">The Weight</div><div class="artist">The Band</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#42</div><div class="title">Waterloo Sunset</div><div class="artist">The Kinks</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#43</div><div class="title">Tutti Frutti</div><div class="artist">Little Richard</div><div class="date">1956</div></div>
+							<div class="card"><div class="nr">#44</div><div class="title">Georgia on My Mind</div><div class="artist">Ray Charles</div><div class="date">1960</div></div>
+							<div class="card"><div class="nr">#45</div><div class="title">Heartbreak Hotel</div><div class="artist">Elvis Presley</div><div class="date">1956</div></div>
+							<div class="card"><div class="nr">#46</div><div class="title">Heroes</div><div class="artist">David Bowie</div><div class="date">1977</div></div>
+							<div class="card"><div class="nr">#47</div><div class="title">Bridge Over divoubled Water</div><div class="artist">Simon &amp; Garfunkel</div><div class="date">1970</div></div>
+							<div class="card"><div class="nr">#48</div><div class="title">All Along the Watchtower</div><div class="artist">Jimi Hendrix</div><div class="date">1968</div></div>
+							<div class="card"><div class="nr">#49</div><div class="title">Hotel California</div><div class="artist">The Eagles</div><div class="date">1976</div></div>
+							<div class="card"><div class="nr">#50</div><div class="title">The divacks of My Tears</div><div class="artist">Smokey Robinson</div><div class="date">1965</div></div>
+						</div>
+						<script>
+							$("#carddata").searcher({
+								itemSelector: ".card",
+								textSelector: "div",
+								inputSelector: "#cardsearchinput",
+								toggle: function(item, containsText) {
+									if (containsText)
+										$(item).fadeIn();
+									else
+										$(item).fadeOut();
+								}
+							});
+						</script>
+					</div>
+
+					<div class="highlight highlight-html">
+<pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"cardsearchinput"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carddata"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nr"</span><span class="nt">&gt;</span>#1<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Like a Rolling Stone<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"artist"</span><span class="nt">&gt;</span>Bob Dylan<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"date"</span><span class="nt">&gt;</span>1965<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nr"</span><span class="nt">&gt;</span>#2<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>(I Can't Get No) Satisfaction <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"artist"</span><span class="nt">&gt;</span>The Rolling Stones<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"date"</span><span class="nt">&gt;</span>1965<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    ...
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+					</div>
+
+					<div class="highlight highlight-js">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#carddata"</span><span class="p">).</span><span class="nx">searcher</span><span class="p">({</span>
+    <span class="nx">itemSelector</span><span class="o">:</span> <span class="s2">".card"</span><span class="p">,</span>
+    <span class="nx">textSelector</span><span class="o">:</span> <span class="s2">"div"</span><span class="p">,</span>
+    <span class="nx">inputSelector</span><span class="o">:</span> <span class="s2">"#cardsearchinput"</span><span class="p">,</span>
+    <span class="nx">toggle</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">containsText</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// use a typically jQuery effect instead of simply showing/hiding the item element</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">containsText</span><span class="p">)</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
+        <span class="k">else</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+					</div>
+
+				</div>
+
+<!--
+  |		TABLE STYLE
+ -->
+
+				<div class="tab-body table">
+
+					<h2 class="tab-header">Table</h2>
+
+					<div class="example">
+						<label>Search for: <input id="tablesearchinput" type="text" /></label>
+						<table id="tabledata">
+							<thead>
+								<tr>
+									<th class="nr">#</th>
+									<th class="title">Title</th>
+									<th class="artist">Artist</th>
+									<th class="date">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>1</td><td>Like a Rolling Stone</td><td>Bob Dylan</td><td>1965</td></tr>
+								<tr><td>2</td><td>(I Can't Get No) Satisfaction </td><td>The Rolling Stones</td><td>1965</td></tr>
+								<tr><td>3</td><td>Imagine</td><td>John Lennon</td><td>1971</td></tr>
+								<tr><td>4</td><td>What's Going On</td><td>Marvin Gaye</td><td>1971</td></tr>
+								<tr><td>5</td><td>Respect</td><td>Aretha Franklin</td><td>1967</td></tr>
+								<tr><td>6</td><td>Good Vibrations</td><td>The Beach Boys</td><td>1966</td></tr>
+								<tr><td>7</td><td>Johnny B. Goode</td><td>Chuck Berry</td><td>1958</td></tr>
+								<tr><td>8</td><td>Hey Jude</td><td>The Beatles</td><td>1968</td></tr>
+								<tr><td>9</td><td>Smells Like Teen Spirit</td><td>Nirvana</td><td>1991</td></tr>
+								<tr><td>10</td><td>What'd I Say</td><td>Ray Charles</td><td>1959</td></tr>
+								<tr><td>11</td><td>My Generation</td><td>The Who</td><td>1965</td></tr>
+								<tr><td>12</td><td>A Change Is Gonna Come</td><td>Sam Cooke</td><td>1964</td></tr>
+								<tr><td>13</td><td>Yesterday</td><td>The Beatles</td><td>1965</td></tr>
+								<tr><td>14</td><td>Blowin' in the Wind</td><td>Bob Dylan</td><td>1963</td></tr>
+								<tr><td>15</td><td>London Calling</td><td>The Clash</td><td>1980</td></tr>
+								<tr><td>16</td><td>I Want to Hold Your Hand</td><td>The Beatles</td><td>1963</td></tr>
+								<tr><td>17</td><td>Purple Haze</td><td>Jimi Hendrix</td><td>1967</td></tr>
+								<tr><td>18</td><td>Maybellene</td><td>Chuck Berry</td><td>1955</td></tr>
+								<tr><td>19</td><td>Hound Dog</td><td>Elvis Presley</td><td>1956</td></tr>
+								<tr><td>20</td><td>Let It Be</td><td>The Beatles</td><td>1970</td></tr>
+								<tr><td>21</td><td>Born to Run</td><td>Bruce Springsteen</td><td>1975</td></tr>
+								<tr><td>22</td><td>Be My Baby</td><td>The Ronettes</td><td>1963</td></tr>
+								<tr><td>23</td><td>In My Life</td><td>The Beatles</td><td>1965</td></tr>
+								<tr><td>24</td><td>People Get Ready</td><td>The Impressions</td><td>1965</td></tr>
+								<tr><td>25</td><td>God Only Knows</td><td>The Beach Boys</td><td>1966</td></tr>
+								<tr><td>26</td><td>A Day in the Life</td><td>The Beatles</td><td>1967</td></tr>
+								<tr><td>27</td><td>Layla</td><td>Derek and the Dominos</td><td>1970</td></tr>
+								<tr><td>28</td><td>(Sittin' on) the Dock of the Bay</td><td>Otis Redding</td><td>1968</td></tr>
+								<tr><td>29</td><td>Help!</td><td>The Beatles</td><td>1965</td></tr>
+								<tr><td>30</td><td>I Walk the Line</td><td>Johnny Cash</td><td>1956</td></tr>
+								<tr><td>31</td><td>Stairway to Heaven</td><td>Led Zeppelin</td><td>1971</td></tr>
+								<tr><td>32</td><td>Sympathy for the Devil</td><td>The Rolling Stones</td><td>1968</td></tr>
+								<tr><td>33</td><td>River Deep, Mountain High</td><td>Tina Turner</td><td>1966</td></tr>
+								<tr><td>34</td><td>You've Lost That Lovin' Feeling</td><td>Righteous Brothers</td><td>1964</td></tr>
+								<tr><td>35</td><td>Light My Fire</td><td>The Doors</td><td>1967</td></tr>
+								<tr><td>36</td><td>One</td><td>U2</td><td>1991</td></tr>
+								<tr><td>37</td><td>No Woman, No Cry</td><td>Bob Marley</td><td>1975</td></tr>
+								<tr><td>38</td><td>Gimme Shelter</td><td>The Rolling Stones</td><td>1969</td></tr>
+								<tr><td>39</td><td>That'll Be the Day</td><td>Buddy Holly</td><td>1957</td></tr>
+								<tr><td>40</td><td>Dancin' in the Streets</td><td>Martha and the Vandellas</td><td>1964</td></tr>
+								<tr><td>41</td><td>The Weight</td><td>The Band</td><td>1968</td></tr>
+								<tr><td>42</td><td>Waterloo Sunset</td><td>The Kinks</td><td>1968</td></tr>
+								<tr><td>43</td><td>Tutti Frutti</td><td>Little Richard</td><td>1956</td></tr>
+								<tr><td>44</td><td>Georgia on My Mind</td><td>Ray Charles</td><td>1960</td></tr>
+								<tr><td>45</td><td>Heartbreak Hotel</td><td>Elvis Presley</td><td>1956</td></tr>
+								<tr><td>46</td><td>Heroes</td><td>David Bowie</td><td>1977</td></tr>
+								<tr><td>47</td><td>Bridge Over Troubled Water</td><td>Simon &amp; Garfunkel</td><td>1970</td></tr>
+								<tr><td>48</td><td>All Along the Watchtower</td><td>Jimi Hendrix</td><td>1968</td></tr>
+								<tr><td>49</td><td>Hotel California</td><td>The Eagles</td><td>1976</td></tr>
+								<tr><td>50</td><td>The Tracks of My Tears</td><td>Smokey Robinson</td><td>1965</td></tr>
+							</tbody>
+						</table>
+						<script>
+							$("#tabledata").searcher({
+								inputSelector: "#tablesearchinput"
+							});
+						</script>
+					</div>
+
+					<div class="highlight highlight-html">
+<pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"tablesearchinput"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">"tabledata"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>#1<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Like a Rolling Stone<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Bob Dylan<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>1965<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td&gt;</span>#2<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>(I Can't Get No) Satisfaction<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>The Rolling Stones<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>1965<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        ...
+    <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+					</div>
+
+					<div class="highlight highlight-js">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tabledata"</span><span class="p">).</span><span class="nx">searcher</span><span class="p">({</span>
+    <span class="nx">inputSelector</span><span class="o">:</span> <span class="s2">"#tablesearchinput"</span>
+    <span class="c1">// itemSelector (tbody &gt; tr) and textSelector (td) already have proper default values</span>
+<span class="p">});</span>
+</pre>
+					</div>
+				</div>
+
+<!--
+  |		LIST STYLE
+ -->
+
+				<div class="tab-body list">
+
+					<h2 class="tab-header">List</h2>
+
+					<div class="example">
+						<label>Search for: <input id="listsearchinput" type="text" /></label>
+						<strong class="list-header">#. Title - Artist (Year)</strong>
+						<ol id="listdata" class="list-group">
+							<li>Like a Rolling Stone - Bob Dylan (1965)</li>
+							<li>(I Can't Get No) Satisfaction  - The Rolling Stones (1965)</li>
+							<li>Imagine - John Lennon (1971)</li>
+							<li>What's Going On - Marvin Gaye (1971)</li>
+							<li>Respect - Aretha Franklin (1967)</li>
+							<li>Good Vibrations - The Beach Boys (1966)</li>
+							<li>Johnny B. Goode - Chuck Berry (1958)</li>
+							<li>Hey Jude - The Beatles (1968)</li>
+							<li>Smells Like Teen Spirit - Nirvana (1991)</li>
+							<li>What'd I Say - Ray Charles (1959)</li>
+							<li>My Generation - The Who (1965)</li>
+							<li>A Change Is Gonna Come - Sam Cooke (1964)</li>
+							<li>Yesterday - The Beatles (1965)</li>
+							<li>Blowin' in the Wind - Bob Dylan (1963)</li>
+							<li>London Calling - The Clash (1980)</li>
+							<li>I Want to Hold Your Hand - The Beatles (1963)</li>
+							<li>Purple Haze - Jimi Hendrix (1967)</li>
+							<li>Maybellene - Chuck Berry (1955)</li>
+							<li>Hound Dog - Elvis Presley (1956)</li>
+							<li>Let It Be - The Beatles (1970)</li>
+							<li>Born to Run - Bruce Springsteen (1975)</li>
+							<li>Be My Baby - The Ronettes (1963)</li>
+							<li>In My Life - The Beatles (1965)</li>
+							<li>People Get Ready - The Impressions (1965)</li>
+							<li>God Only Knows - The Beach Boys (1966)</li>
+							<li>A Day in the Life - The Beatles (1967)</li>
+							<li>Layla - Derek and the Dominos (1970)</li>
+							<li>(Sittin' on) the Dock of the Bay - Otis Redding (1968)</li>
+							<li>Help! - The Beatles (1965)</li>
+							<li>I Walk the Line - Johnny Cash (1956)</li>
+							<li>Stairway to Heaven - Led Zeppelin (1971)</li>
+							<li>Sympathy for the Devil - The Rolling Stones (1968)</li>
+							<li>River Deep, Mountain High - Tina Turner (1966)</li>
+							<li>You've Lost That Lovin' Feeling - Righteous Brothers (1964)</li>
+							<li>Light My Fire - The Doors (1967)</li>
+							<li>One - U2 (1991)</li>
+							<li>No Woman, No Cry - Bob Marley (1975)</li>
+							<li>Gimme Shelter - The Rolling Stones (1969)</li>
+							<li>That'll Be the Day - Buddy Holly (1957)</li>
+							<li>Dancin' in the Slieets - Martha and the Vandellas (1964)</li>
+							<li>The Weight - The Band (1968)</li>
+							<li>Waterloo Sunset - The Kinks (1968)</li>
+							<li>Tutti Frutti - Little Richard (1956)</li>
+							<li>Georgia on My Mind - Ray Charles (1960)</li>
+							<li>Heartbreak Hotel - Elvis Presley (1956)</li>
+							<li>Heroes - David Bowie (1977)</li>
+							<li>Bridge Over Troubled Water - Simon &amp; Garfunkel (1970)</li>
+							<li>All Along the Watchtower - Jimi Hendrix (1968)</li>
+							<li>Hotel California - The Eagles (1976)</li>
+							<li>The Tracks of My Tears - Smokey Robinson (1965)</li>
+						</ol>
+						<script>
+							$("#listdata").searcher({
+								itemSelector: "li",
+								textSelector: "",
+								inputSelector: "#listsearchinput"
+							});
+						</script>
+					</div>
+
+					<div class="highlight highlight-html">
+<pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listsearchinput"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;ol</span> <span class="na">id=</span><span class="s">"listdata"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Like a Rolling Stone - Bob Dylan (1965)<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>(I Can't Get No) Satisfaction  - The Rolling Stones (1965)<span class="nt">&lt;/li&gt;</span>
+    ...
+<span class="nt">&lt;/ol&gt;</span></pre>
+					</div>
+
+					<div class="highlight highlight-js">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#listdata"</span><span class="p">).</span><span class="nx">searcher</span><span class="p">({</span>
+    <span class="nx">itemSelector</span><span class="o">:</span> <span class="s2">"li"</span><span class="p">,</span>
+    <span class="nx">textSelector</span><span class="o">:</span>  <span class="s2">""</span><span class="p">,</span> <span class="c1">// the text is within the item element (li) itself</span>
+    <span class="nx">inputSelector</span><span class="o">:</span> <span class="s2">"#listsearchinput"</span>
+<span class="p">});</span>
+</pre>
+					</div>
+
+				</div>
+
+				<h2><a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+				<p>Include the jquery.searcher.js script after the jQuery library (unless you are packaging scripts somehow else):</p>
+
+				<div class="highlight highlight-html">
+<pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/path/to/jquery.searcher.js"</span><span class="nt">&gt;&lt;/script&gt;</span></pre>
+				</div>
+
+				<p>And call the plugin for any list with this script:</p>
+
+				<div class="highlight highlight-js">
+<pre><span class="nx">$</span><span class="p">(</span><span class="s2">"..."</span><span class="p">).</span><span class="nx">searcher</span><span class="p">({</span>
+    <span class="nx">itemSelector</span><span class="o">:</span>  <span class="s2">"..."</span><span class="p">,</span> <span class="c1">// jQuery selector for the data item element</span>
+    <span class="nx">textSelector</span><span class="o">:</span>  <span class="s2">"..."</span><span class="p">,</span> <span class="c1">// jQuery selector for the element which contains the text</span>
+    <span class="nx">inputSelector</span><span class="o">:</span> <span class="s2">"..."</span>  <span class="c1">// jQuery selector for the input element</span>
+<span class="p">});</span></pre>
+				</div>
+
+				<h2><a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+				<p>The following table contains all possible options which can be passed to the plugin.</p>
+
+				<label>Search within the documentation: <input type="text" id="docusearchinput" /></label>
+				<table id="documentation">
 					<thead>
 						<tr>
-							<th class="nr">#</th>
-							<th class="title">Title</th>
-							<th class="artist">Artist</th>
-							<th class="date">Date</th>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr><td class="nr">1</td><td class="title">Like a Rolling Stone</td><td class="artist">Bob Dylan</td><td class="date">1965</td></tr>
-						<tr><td class="nr">2</td><td class="title">(I Can't Get No) Satisfaction </td><td class="artist">The Rolling Stones</td><td class="date">1965</td></tr>
-						<tr><td class="nr">3</td><td class="title">Imagine</td><td class="artist">John Lennon</td><td class="date">1971</td></tr>
-						<tr><td class="nr">4</td><td class="title">What's Going On</td><td class="artist">Marvin Gaye</td><td class="date">1971</td></tr>
-						<tr><td class="nr">5</td><td class="title">Respect</td><td class="artist">Aretha Franklin</td><td class="date">1967</td></tr>
-						<tr><td class="nr">6</td><td class="title">Good Vibrations</td><td class="artist">The Beach Boys</td><td class="date">1966</td></tr>
-						<tr><td class="nr">7</td><td class="title">Johnny B. Goode</td><td class="artist">Chuck Berry</td><td class="date">1958</td></tr>
-						<tr><td class="nr">8</td><td class="title">Hey Jude</td><td class="artist">The Beatles</td><td class="date">1968</td></tr>
-						<tr><td class="nr">9</td><td class="title">Smells Like Teen Spirit</td><td class="artist">Nirvana</td><td class="date">1991</td></tr>
-						<tr><td class="nr">10</td><td class="title">What'd I Say</td><td class="artist">Ray Charles</td><td class="date">1959</td></tr>
-						<tr><td class="nr">11</td><td class="title">My Generation</td><td class="artist">The Who</td><td class="date">1965</td></tr>
-						<tr><td class="nr">12</td><td class="title">A Change Is Gonna Come</td><td class="artist">Sam Cooke</td><td class="date">1964</td></tr>
-						<tr><td class="nr">13</td><td class="title">Yesterday</td><td class="artist">The Beatles</td><td class="date">1965</td></tr>
-						<tr><td class="nr">14</td><td class="title">Blowin' in the Wind</td><td class="artist">Bob Dylan</td><td class="date">1963</td></tr>
-						<tr><td class="nr">15</td><td class="title">London Calling</td><td class="artist">The Clash</td><td class="date">1980</td></tr>
-						<tr><td class="nr">16</td><td class="title">I Want to Hold Your Hand</td><td class="artist">The Beatles</td><td class="date">1963</td></tr>
-						<tr><td class="nr">17</td><td class="title">Purple Haze</td><td class="artist">Jimi Hendrix</td><td class="date">1967</td></tr>
-						<tr><td class="nr">18</td><td class="title">Maybellene</td><td class="artist">Chuck Berry</td><td class="date">1955</td></tr>
-						<tr><td class="nr">19</td><td class="title">Hound Dog</td><td class="artist">Elvis Presley</td><td class="date">1956</td></tr>
-						<tr><td class="nr">20</td><td class="title">Let It Be</td><td class="artist">The Beatles</td><td class="date">1970</td></tr>
-						<tr><td class="nr">21</td><td class="title">Born to Run</td><td class="artist">Bruce Springsteen</td><td class="date">1975</td></tr>
-						<tr><td class="nr">22</td><td class="title">Be My Baby</td><td class="artist">The Ronettes</td><td class="date">1963</td></tr>
-						<tr><td class="nr">23</td><td class="title">In My Life</td><td class="artist">The Beatles</td><td class="date">1965</td></tr>
-						<tr><td class="nr">24</td><td class="title">People Get Ready</td><td class="artist">The Impressions</td><td class="date">1965</td></tr>
-						<tr><td class="nr">25</td><td class="title">God Only Knows</td><td class="artist">The Beach Boys</td><td class="date">1966</td></tr>
-						<tr><td class="nr">26</td><td class="title">A Day in the Life</td><td class="artist">The Beatles</td><td class="date">1967</td></tr>
-						<tr><td class="nr">27</td><td class="title">Layla</td><td class="artist">Derek and the Dominos</td><td class="date">1970</td></tr>
-						<tr><td class="nr">28</td><td class="title">(Sittin' on) the Dock of the Bay</td><td class="artist">Otis Redding</td><td class="date">1968</td></tr>
-						<tr><td class="nr">29</td><td class="title">Help!</td><td class="artist">The Beatles</td><td class="date">1965</td></tr>
-						<tr><td class="nr">30</td><td class="title">I Walk the Line</td><td class="artist">Johnny Cash</td><td class="date">1956</td></tr>
-						<tr><td class="nr">31</td><td class="title">Stairway to Heaven</td><td class="artist">Led Zeppelin</td><td class="date">1971</td></tr>
-						<tr><td class="nr">32</td><td class="title">Sympathy for the Devil</td><td class="artist">The Rolling Stones</td><td class="date">1968</td></tr>
-						<tr><td class="nr">33</td><td class="title">River Deep, Mountain High</td><td class="artist">Tina Turner</td><td class="date">1966</td></tr>
-						<tr><td class="nr">34</td><td class="title">You've Lost That Lovin' Feeling</td><td class="artist">Righteous Brothers</td><td class="date">1964</td></tr>
-						<tr><td class="nr">35</td><td class="title">Light My Fire</td><td class="artist">The Doors</td><td class="date">1967</td></tr>
-						<tr><td class="nr">36</td><td class="title">One</td><td class="artist">U2</td><td class="date">1991</			</tr>
-						<tr><td class="nr">37</td><td class="title">No Woman, No Cry</td><td class="artist">Bob Marley</td><td class="date">1975</td></tr>
-						<tr><td class="nr">38</td><td class="title">Gimme Shelter</td><td class="artist">The Rolling Stones</td><td class="date">1969</td></tr>
-						<tr><td class="nr">39</td><td class="title">That'll Be the Day</td><td class="artist">Buddy Holly</td><td class="date">1957</td></tr>
-						<tr><td class="nr">40</td><td class="title">Dancin' in the Streets</td><td class="artist">Martha and the Vandellas</td><td class="date">1964</td></tr>
-						<tr><td class="nr">41</td><td class="title">The Weight</td><td class="artist">The Band</td><td class="date">1968</td></tr>
-						<tr><td class="nr">42</td><td class="title">Waterloo Sunset</td><td class="artist">The Kinks</td><td class="date">1968</td></tr>
-						<tr><td class="nr">43</td><td class="title">Tutti Frutti</td><td class="artist">Little Richard</td><td class="date">1956</td></tr>
-						<tr><td class="nr">44</td><td class="title">Georgia on My Mind</td><td class="artist">Ray Charles</td><td class="date">1960</td></tr>
-						<tr><td class="nr">45</td><td class="title">Heartbreak Hotel</td><td class="artist">Elvis Presley</td><td class="date">1956</td></tr>
-						<tr><td class="nr">46</td><td class="title">Heroes</td><td class="artist">David Bowie</td><td class="date">1977</td></tr>
-						<tr><td class="nr">47</td><td class="title">Bridge Over Troubled Water</td><td class="artist">Simon &amp; Garfunkel</td><td class="date">1970</td></tr>
-						<tr><td class="nr">48</td><td class="title">All Along the Watchtower</td><td class="artist">Jimi Hendrix</td><td class="date">1968</td></tr>
-						<tr><td class="nr">49</td><td class="title">Hotel California</td><td class="artist">The Eagles</td><td class="date">1976</td></tr>
-						<tr><td class="nr">50</td><td class="title">The Tracks of My Tears</td><td class="artist">Smokey Robinson</td><td class="date">1965</td></tr>
-						<tr><td class="nr">51</td><td class="title">The Message</td><td class="artist">Grandmaster Flash</td><td class="date">1982</td></tr>
-						<tr><td class="nr">52</td><td class="title">When Doves Cry</td><td class="artist">Prince</td><td class="date">1984</td></tr>
-						<tr><td class="nr">53</td><td class="title">Anarchy in the U.K.</td><td class="artist">The Sex Pistols</td><td class="date">1977</td></tr>
-						<tr><td class="nr">54</td><td class="title">When a Man Loves a Woman</td><td class="artist">Percy Sledge</td><td class="date">1966</td></tr>
-						<tr><td class="nr">55</td><td class="title">Louie Louie</td><td class="artist">The Kingsmen</td><td class="date">1963</td></tr>
-						<tr><td class="nr">56</td><td class="title">Long Tall Sally</td><td class="artist">Little Richard</td><td class="date">1956</td></tr>
-						<tr><td class="nr">57</td><td class="title">A Whiter Shade of Pale</td><td class="artist">Procol Harum</td><td class="date">1967</td></tr>
-						<tr><td class="nr">58</td><td class="title">Billie Jean</td><td class="artist">Michael Jackson</td><td class="date">1983</td></tr>
-						<tr><td class="nr">59</td><td class="title">The Times They Are A-Changin'</td><td class="artist">Bob Dylan</td><td class="date">1964</td></tr>
-						<tr><td class="nr">60</td><td class="title">Let's Stay Together</td><td class="artist">Al Green</td><td class="date">1971</td></tr>
-						<tr><td class="nr">61</td><td class="title">Whole Lotta Shakin' Going On</td><td class="artist">Jerry Lee Lewis</td><td class="date">1957</td></tr>
-						<tr><td class="nr">62</td><td class="title">Bo Diddley</td><td class="artist">Bo Diddley</td><td class="date">1955</td></tr>
-						<tr><td class="nr">63</td><td class="title">For What It's Worth</td><td class="artist">Buffalo Springfield</td><td class="date">1967</td></tr>
-						<tr><td class="nr">64</td><td class="title">She Loves You</td><td class="artist">The Beatles</td><td class="date">1963</td></tr>
-						<tr><td class="nr">65</td><td class="title">Sunshine of Your Love</td><td class="artist">Cream</td><td class="date">1968</td></tr>
-						<tr><td class="nr">66</td><td class="title">Redemption Song</td><td class="artist">Bob Marley</td><td class="date">1980</td></tr>
-						<tr><td class="nr">67</td><td class="title">Jailhouse Rock</td><td class="artist">Elvis Presley</td><td class="date">1957</td></tr>
-						<tr><td class="nr">68</td><td class="title">Tangled Up in Blue</td><td class="artist">Bob Dylan</td><td class="date">1975</td></tr>
-						<tr><td class="nr">69</td><td class="title">Crying</td><td class="artist">Roy Orbison</td><td class="date">1961</td></tr>
-						<tr><td class="nr">70</td><td class="title">Walk On By</td><td class="artist">Dionne Warwick</td><td class="date">1964</td></tr>
-						<tr><td class="nr">71</td><td class="title">California Girls</td><td class="artist">The Beach Boys</td><td class="date">1965</td></tr>
-						<tr><td class="nr">72</td><td class="title">Papa's Got a Brand New Bag</td><td class="artist">James Brown</td><td class="date">1966</td></tr>
-						<tr><td class="nr">73</td><td class="title">Summertime Blues</td><td class="artist">Eddie Cochran</td><td class="date">1958</td></tr>
-						<tr><td class="nr">74</td><td class="title">Superstition</td><td class="artist">Stevie Wonder</td><td class="date">1972</td></tr>
-						<tr><td class="nr">75</td><td class="title">Whole Lotta Love</td><td class="artist">Led Zeppelin</td><td class="date">1969</td></tr>
-						<tr><td class="nr">76</td><td class="title">Strawberry Fields Forever</td><td class="artist">The Beatles</td><td class="date">1967</td></tr>
-						<tr><td class="nr">77</td><td class="title">Mystery Train</td><td class="artist">Elvis Presley</td><td class="date">1955</td></tr>
-						<tr><td class="nr">78</td><td class="title">I Got You (I Feel Good)</td><td class="artist">James Brown</td><td class="date">1965</td></tr>
-						<tr><td class="nr">79</td><td class="title">Mr. Tambourine Man</td><td class="artist">The Byrds</td><td class="date">1965</td></tr>
-						<tr><td class="nr">80</td><td class="title">I Heard It Through the Grapevine</td><td class="artist">Marvin Gaye</td><td class="date">1968</td></tr>
-						<tr><td class="nr">81</td><td class="title">Blueberry Hill</td><td class="artist">Fats Domino</td><td class="date">1956</td></tr>
-						<tr><td class="nr">82</td><td class="title">You Really Got Me</td><td class="artist">The Kinks</td><td class="date">1964</td></tr>
-						<tr><td class="nr">83</td><td class="title">Norwegian Wood (This Bird Has Flown)</td><td class="artist">The Beatles</td><td class="date">1965</td></tr>
-						<tr><td class="nr">84</td><td class="title">Every Breath You Take</td><td class="artist">The Police</td><td class="date">1983</td></tr>
-						<tr><td class="nr">85</td><td class="title">Crazy</td><td class="artist">Patsy Cline</td><td class="date">1961</td></tr>
-						<tr><td class="nr">86</td><td class="title">Thunder Road</td><td class="artist">Bruce Springsteen</td><td class="date">1975</td></tr>
-						<tr><td class="nr">87</td><td class="title">Ring of Fire</td><td class="artist">Johnny Cash</td><td class="date">1963</td></tr>
-						<tr><td class="nr">88</td><td class="title">My Girl</td><td class="artist">The Temptations</td><td class="date">1965</td></tr>
-						<tr><td class="nr">89</td><td class="title">California Dreamin'</td><td class="artist">The Mamas &amp; The Papas</td><td class="date">1965</td></tr>
-						<tr><td class="nr">90</td><td class="title">In the Still of the Night</td><td class="artist">The Five Satins</td><td class="date">1956</td></tr>
-						<tr><td class="nr">91</td><td class="title">Suspicious Minds</td><td class="artist">Elvis Presley</td><td class="date">1969</td></tr>
-						<tr><td class="nr">92</td><td class="title">Blitzkrieg Bop</td><td class="artist">The Ramones</td><td class="date">1976</td></tr>
-						<tr><td class="nr">93</td><td class="title">I Still Haven't Found What I'm Looking For</td><td class="artist">U2</td><td class="date">1987</td></tr>
-						<tr><td class="nr">94</td><td class="title">Good Golly, Miss Molly</td><td class="artist">Little Richard</td><td class="date">1958</td></tr>
-						<tr><td class="nr">95</td><td class="title">Blue Suede Shoes</td><td class="artist">Carl Perkins</td><td class="date">1956</td></tr>
-						<tr><td class="nr">96</td><td class="title">Great Balls of Fire</td><td class="artist">Jerry Lee Lewis</td><td class="date">1957</td></tr>
-						<tr><td class="nr">97</td><td class="title">Roll Over Beethoven</td><td class="artist">Chuck Berry</td><td class="date">1956</td></tr>
-						<tr><td class="nr">98</td><td class="title">Love and Happiness</td><td class="artist">Al Green</td><td class="date">1972</td></tr>
-						<tr><td class="nr">99</td><td class="title">Fortunate Son</td><td class="artist">Creedence Clearwater Revival</td><td class="date">1969</td></tr>
-						<tr><td class="nr">100</td><td class="title">You Can't Always Get What You Want</td><td class="artist">Rolling Stones</td><td class="date">1969</td></tr>
+					<tr>
+						<td>itemSelector</td>
+						<td>string</td>
+						<td>
+							jQuery selector for the data item element (e.g. <code>tr, li</code>).<br>
+							Default: <code>"tbody &gt; tr"</code>
+						</td>
+						</tr>
+					<tr>
+						<td>textSelector</td>
+						<td>string</td>
+						<td>
+							jQuery selector for the element which contains the text within the item element.<br>
+							If not specified the data item element is used instead.<br>
+							Default: <code>"td"</code>
+						</td>
+						</tr>
+					<tr>
+						<td>inputSelector</td>
+						<td>string</td>
+						<td>
+							jQuery selector for the input element which is used to filter the data.<br>
+							Default: <code>""</code>
+						</td>
+						</tr>
+					<tr>
+						<td>caseSensitive</td>
+						<td>bool</td>
+						<td>
+							Determines whether the search should be case sensitive or not.<br>
+							Default: <code>false</code>
+						</td>
+						</tr>
+					<tr>
+						<td>toggle</td>
+						<td>function</td>
+						<td>
+							this function is called for each data item element when the text in the input changes.<br>
+							it is called with the data item element and a boolean value indicating whether the item contains the text or not.<br>
+							Default: <code>function(item, containsText) { $(item).toggle(containsText); }</code>
+						</td>
+					</tr>
 					</tbody>
 				</table>
 				<script>
-					$("#example-table").searcher({
-						itemSelector: "tbody > tr",
-						textSelector: "td",
-						inputSelector: "#example-table-input"
+					$("#documentation").searcher({
+						inputSelector: "#docusearchinput",
+						toggle: function(item, containsText) {
+							$(item).toggleClass("disabled", !containsText);
+						}
 					});
 				</script>
-			</div>
-		</section>
-		<section class="panel panel-default">
-			<div class="panel-heading">
-				<h3 class="panel-title">List</h3>
-			</div>
-			<div class="panel-body">
-				<label>Enter any search text: <input id="example-list-input" type="text" /></label>
-				<ul id="example-list" class="list-group">
-					<li class="list-group-item">#1 - Like a Rolling Stone - Bob Dylan (1965)</li>
-					<li class="list-group-item">#2 - (I Can't Get No) Satisfaction  - The Rolling Stones (1965)</li>
-					<li class="list-group-item">#3 - Imagine - John Lennon (1971)</li>
-					<li class="list-group-item">#4 - What's Going On - Marvin Gaye (1971)</li>
-					<li class="list-group-item">#5 - Respect - Aretha Franklin (1967)</li>
-					<li class="list-group-item">#6 - Good Vibrations - The Beach Boys (1966)</li>
-					<li class="list-group-item">#7 - Johnny B. Goode - Chuck Berry (1958)</li>
-					<li class="list-group-item">#8 - Hey Jude - The Beatles (1968)</li>
-					<li class="list-group-item">#9 - Smells Like Teen Spirit - Nirvana (1991)</li>
-					<li class="list-group-item">#10 - What'd I Say - Ray Charles (1959)</li>
-					<li class="list-group-item">#11 - My Generation - The Who (1965)</li>
-					<li class="list-group-item">#12 - A Change Is Gonna Come - Sam Cooke (1964)</li>
-					<li class="list-group-item">#13 - Yesterday - The Beatles (1965)</li>
-					<li class="list-group-item">#14 - Blowin' in the Wind - Bob Dylan (1963)</li>
-					<li class="list-group-item">#15 - London Calling - The Clash (1980)</li>
-					<li class="list-group-item">#16 - I Want to Hold Your Hand - The Beatles (1963)</li>
-					<li class="list-group-item">#17 - Purple Haze - Jimi Hendrix (1967)</li>
-					<li class="list-group-item">#18 - Maybellene - Chuck Berry (1955)</li>
-					<li class="list-group-item">#19 - Hound Dog - Elvis Presley (1956)</li>
-					<li class="list-group-item">#20 - Let It Be - The Beatles (1970)</li>
-					<li class="list-group-item">#21 - Born to Run - Bruce Springsteen (1975)</li>
-					<li class="list-group-item">#22 - Be My Baby - The Ronettes (1963)</li>
-					<li class="list-group-item">#23 - In My Life - The Beatles (1965)</li>
-					<li class="list-group-item">#24 - People Get Ready - The Impressions (1965)</li>
-					<li class="list-group-item">#25 - God Only Knows - The Beach Boys (1966)</li>
-					<li class="list-group-item">#26 - A Day in the Life - The Beatles (1967)</li>
-					<li class="list-group-item">#27 - Layla - Derek and the Dominos (1970)</li>
-					<li class="list-group-item">#28 - (Sittin' on) the Dock of the Bay - Otis Redding (1968)</li>
-					<li class="list-group-item">#29 - Help! - The Beatles (1965)</li>
-					<li class="list-group-item">#30 - I Walk the Line - Johnny Cash (1956)</li>
-					<li class="list-group-item">#31 - Stairway to Heaven - Led Zeppelin (1971)</li>
-					<li class="list-group-item">#32 - Sympathy for the Devil - The Rolling Stones (1968)</li>
-					<li class="list-group-item">#33 - River Deep, Mountain High - Tina Turner (1966)</li>
-					<li class="list-group-item">#34 - You've Lost That Lovin' Feeling - Righteous Brothers (1964)</li>
-					<li class="list-group-item">#35 - Light My Fire - The Doors (1967)</li>
-					<li class="list-group-item">#36 - One - U2 (1991)</li>
-					<li class="list-group-item">#37 - No Woman, No Cry - Bob Marley (1975)</li>
-					<li class="list-group-item">#38 - Gimme Shelter - The Rolling Stones (1969)</li>
-					<li class="list-group-item">#39 - That'll Be the Day - Buddy Holly (1957)</li>
-					<li class="list-group-item">#40 - Dancin' in the Slieets - Martha and the Vandellas (1964)</li>
-					<li class="list-group-item">#41 - The Weight - The Band (1968)</li>
-					<li class="list-group-item">#42 - Waterloo Sunset - The Kinks (1968)</li>
-					<li class="list-group-item">#43 - Tutti Frutti - Little Richard (1956)</li>
-					<li class="list-group-item">#44 - Georgia on My Mind - Ray Charles (1960)</li>
-					<li class="list-group-item">#45 - Heartbreak Hotel - Elvis Presley (1956)</li>
-					<li class="list-group-item">#46 - Heroes - David Bowie (1977)</li>
-					<li class="list-group-item">#47 - Bridge Over Troubled Water - Simon &amp; Garfunkel (1970)</li>
-					<li class="list-group-item">#48 - All Along the Watchtower - Jimi Hendrix (1968)</li>
-					<li class="list-group-item">#49 - Hotel California - The Eagles (1976)</li>
-					<li class="list-group-item">#50 - The Tracks of My Tears - Smokey Robinson (1965)</li>
-					<li class="list-group-item">#51 - The Message - Grandmaster Flash (1982)</li>
-					<li class="list-group-item">#52 - When Doves Cry - Prince (1984)</li>
-					<li class="list-group-item">#53 - Anarchy in the U.K. - The Sex Pistols (1977)</li>
-					<li class="list-group-item">#54 - When a Man Loves a Woman - Percy Sledge (1966)</li>
-					<li class="list-group-item">#55 - Louie Louie - The Kingsmen (1963)</li>
-					<li class="list-group-item">#56 - Long Tall Sally - Little Richard (1956)</li>
-					<li class="list-group-item">#57 - A Whiter Shade of Pale - Procol Harum (1967)</li>
-					<li class="list-group-item">#58 - Billie Jean - Michael Jackson (1983)</li>
-					<li class="list-group-item">#59 - The Times They Are A-Changin' - Bob Dylan (1964)</li>
-					<li class="list-group-item">#60 - Let's Stay Together - Al Green (1971)</li>
-					<li class="list-group-item">#61 - Whole Lotta Shakin' Going On - Jerry Lee Lewis (1957)</li>
-					<li class="list-group-item">#62 - Bo Diddley - Bo Diddley (1955)</li>
-					<li class="list-group-item">#63 - For What It's Worth - Buffalo Springfield (1967)</li>
-					<li class="list-group-item">#64 - She Loves You - The Beatles (1963)</li>
-					<li class="list-group-item">#65 - Sunshine of Your Love - Cream (1968)</li>
-					<li class="list-group-item">#66 - Redemption Song - Bob Marley (1980)</li>
-					<li class="list-group-item">#67 - Jailhouse Rock - Elvis Presley (1957)</li>
-					<li class="list-group-item">#68 - Tangled Up in Blue - Bob Dylan (1975)</li>
-					<li class="list-group-item">#69 - Crying - Roy Orbison (1961)</li>
-					<li class="list-group-item">#70 - Walk On By - Dionne Warwick (1964)</li>
-					<li class="list-group-item">#71 - California Girls - The Beach Boys (1965)</li>
-					<li class="list-group-item">#72 - Papa's Got a Brand New Bag - James Brown (1966)</li>
-					<li class="list-group-item">#73 - Summertime Blues - Eddie Cochran (1958)</li>
-					<li class="list-group-item">#74 - Superstition - Stevie Wonder (1972)</li>
-					<li class="list-group-item">#75 - Whole Lotta Love - Led Zeppelin (1969)</li>
-					<li class="list-group-item">#76 - Sliawberry Fields Forever - The Beatles (1967)</li>
-					<li class="list-group-item">#77 - Mystery Train - Elvis Presley (1955)</li>
-					<li class="list-group-item">#78 - I Got You (I Feel Good) - James Brown (1965)</li>
-					<li class="list-group-item">#79 - Mr. Tambourine Man - The Byrds (1965)</li>
-					<li class="list-group-item">#80 - I Heard It Through the Grapevine - Marvin Gaye (1968)</li>
-					<li class="list-group-item">#81 - Blueberry Hill - Fats Domino (1956)</li>
-					<li class="list-group-item">#82 - You Really Got Me - The Kinks (1964)</li>
-					<li class="list-group-item">#83 - Norwegian Wood (This Bird Has Flown) - The Beatles (1965)</li>
-					<li class="list-group-item">#84 - Every Breath You Take - The Police (1983)</li>
-					<li class="list-group-item">#85 - Crazy - Patsy Cline (1961)</li>
-					<li class="list-group-item">#86 - Thunder Road - Bruce Springsteen (1975)</li>
-					<li class="list-group-item">#87 - Ring of Fire - Johnny Cash (1963)</li>
-					<li class="list-group-item">#88 - My Girl - The Temptations (1965)</li>
-					<li class="list-group-item">#89 - California Dreamin' - The Mamas &amp; The Papas (1965)</li>
-					<li class="list-group-item">#90 - In the Still of the Night - The Five Satins (1956)</li>
-					<li class="list-group-item">#91 - Suspicious Minds - Elvis Presley (1969)</li>
-					<li class="list-group-item">#92 - Blitzkrieg Bop - The Ramones (1976)</li>
-					<li class="list-group-item">#93 - I Still Haven't Found What I'm Looking For - U2 (1987)</li>
-					<li class="list-group-item">#94 - Good Golly, Miss Molly - Little Richard (1958)</li>
-					<li class="list-group-item">#95 - Blue Suede Shoes - Carl Perkins (1956)</li>
-					<li class="list-group-item">#96 - Great Balls of Fire - Jerry Lee Lewis (1957)</li>
-					<li class="list-group-item">#97 - Roll Over Beethoven - Chuck Berry (1956)</li>
-					<li class="list-group-item">#98 - Love and Happiness - Al Green (1972)</li>
-					<li class="list-group-item">#99 - Fortunate Son - Creedence Clearwater Revival (1969)</li>
-					<li class="list-group-item">#100 - You Can't Always Get What You Want - Rolling Stones (1969)</li>
-				</ul>
-				<script>
-					$("#example-list").searcher({
-						itemSelector: "li",
-						textSelector: "",
-						inputSelector: "#example-list-input"
-					});
-				</script>
-			</div>
-		</section>
-	</div>
-</body>
+
+				<h2><a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+				<p>Copyright (c) 2013 Lukas Beranek Licensed under the MIT license.</p>
+			</section>
+		</div>
+		<footer>
+			<p>Project maintained by <a href="https://github.com/lloiser">lloiser</a></p>
+			<p>Hosted on GitHub Pages — Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+		</footer>
+		<script src="js/scripts.js"></script>
+		<!--[if !IE]><script>fixScale(document);</script><![endif]-->
+	</body>
 </html>
