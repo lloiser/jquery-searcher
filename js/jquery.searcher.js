@@ -1,3 +1,7 @@
+/*! jQuery Searcher Plugin - v0.1.0 - 2014-01-06
+ * https://github.com/lloiser/jquery-searcher/
+ * Copyright (c) 2014 Lukas Beranek; Licensed MIT
+*/
 (function IIFE($, window, document, undefined) {
 	"use strict";
 
@@ -50,7 +54,7 @@
 				return; // nothing has changed
 
 			this._lastValue = value;
-			
+
 			this._$element
 				.find(options.itemSelector)
 				.each(function eachItem() {
