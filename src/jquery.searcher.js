@@ -50,7 +50,7 @@
 				return; // nothing has changed
 
 			this._lastValue = value;
-			
+
 			this._$element
 				.find(options.itemSelector)
 				.each(function eachItem() {

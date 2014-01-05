@@ -8,5 +8,7 @@
     "jquery":    true,
     "browser":   true,
     "noarg":     true,
-    "noempty":   true
+    "noempty":   true,
+    "quotmark":  "double",
+    "predef":    ["jQuery"]
 }
