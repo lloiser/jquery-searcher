@@ -1,0 +1,20 @@
+{
+	"name":        "jquery-searcher",
+	"title":       "jQuery Searcher Plugin",
+	"version":     "0.1.0",
+	"description": "Connects any list-like data with an input for searching.",
+	"license":     "MIT",
+
+	"keywords": [
+		"searcher",
+		"search",
+		"filter",
+		"table",
+		"list",
+		"connect"
+	],
+
+	"dependencies": {
+		"jquery": ">=1.4.3"
+	}
+}

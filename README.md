@@ -4,6 +4,8 @@ The jQuery Searcher Plugin connects any list-like data with an input for searchi
 
 ## Installation
 
+Download the latest [release](https://github.com/lloiser/jquery-searcher/releases/) of this plugin on GitHub.
+
 Include the jquery.searcher.js script after the jQuery library (unless you are packaging scripts somehow else):
 ```html
 <script src="/path/to/jquery.searcher.js"></script>
@@ -20,6 +22,8 @@ $("...").searcher({
 ```
 
 ## Example
+
+See the live version of the following example on the [GitHub page](http://lloiser.github.io/jquery-searcher/).
 
 Given the following HTML markup:
 ```html
@@ -49,8 +53,6 @@ $("#tabledata").searcher({
     // itemSelector (tbody > tr) and textSelector (td) already have proper default values
 });
 ```
-
-See the live example in the [github page](http://lloiser.github.io/jquery-searcher/).
 
 ## Documentation
 
@@ -112,4 +114,4 @@ The following table contains all possible options which can be passed to the plu
 
 ## License
 
-Copyright (c) 2013 Lukas Beranek Licensed under the MIT license.
+Copyright (c) 2014 Lukas Beranek Licensed under the MIT license.

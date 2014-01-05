@@ -10,5 +10,5 @@
     "noarg":     true,
     "noempty":   true,
     "quotmark":  "double",
-    "predef":    ["jQuery"]
+    "predef":    ["jQuery", "module"]
 }
