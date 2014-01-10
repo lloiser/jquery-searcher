@@ -4,11 +4,11 @@
     "undef":     true,
     "unused":    true,
     "lastsemic": true,
-    "maxlen":    100,
+    "maxlen":    120,
     "jquery":    true,
     "browser":   true,
     "noarg":     true,
     "noempty":   true,
     "quotmark":  "double",
-    "predef":    ["jQuery", "module"]
+    "predef":    ["jQuery", "module", "define"]
 }

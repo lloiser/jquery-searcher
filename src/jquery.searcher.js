@@ -1,5 +1,8 @@
-(function IIFE($, window, document, undefined) {
-	"use strict";
+(function IIFE() {
+
+"use strict";
+
+function factory($) {
 
 	var pluginName = "searcher",
 		dataKey = "plugin_" + pluginName,
@@ -86,4 +89,16 @@
 		});
 	};
 
-}(jQuery, window, document));
+}
+
+// AMD style (register as an anonymous module)
+if (typeof(define) === "function" && define.amd)
+	define(["jquery"], factory);
+// node/CommonJS style (for Browserify)
+else if (typeof(exports) === "object")
+	module.exports = factory;
+// browser
+else
+	factory(jQuery);
+
+}).call(this);
