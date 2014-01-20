@@ -1,0 +1,90 @@
+body
+{
+	font: 14px/1.4 Arial, sans-serif;
+	overflow-y: scroll;
+}
+
+p, ul, ol, table, pre, dl
+{
+	margin: 0 0 20px;
+}
+
+table
+{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td
+{
+	text-align: left;
+	padding: 5px 10px;
+	border-top: 1px solid #aaa;
+}
+
+th
+{
+	border-top: 0;
+}
+
+label
+{
+	font-weight: bold;
+}
+
+#tabledata .nr     { width: 8%; }
+#tabledata .title  { width: 43%; }
+#tabledata .artist { width: 40%; }
+#tabledata .date   { width: 9%; }
+.list-header   { display: block; padding: 0 0 0 20px; }
+#carddata > *
+{
+	display: inline-block;
+	position: relative;
+	width: 265px;
+	margin: 15px;
+	border: 1px solid #aaa;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	border-radius: 15px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+	box-shadow: rgba(0, 0, 0, 0.2) 3px 3px 8px;
+}
+#carddata:after
+{
+	content: " ";
+	clear: both;
+	display: table;
+}
+#carddata .nr, #carddata .title, #carddata .artist, #carddata .date
+{
+	color: #888;
+	text-align: center;
+	font-size: 11px;
+}
+#carddata .nr, #carddata .date
+{
+	display: inline-block;
+	margin: 5px;
+	padding: 2px 5px;
+	width: auto;
+	background: #777;
+	color: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}
+#carddata .date
+{
+	float: right;
+}
+#carddata .title
+{
+	font-size: 14px;
+	color: inherit;
+}

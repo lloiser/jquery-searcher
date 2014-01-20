@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Card example</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="../dist/jquery.searcher.js"></script>
+	</head>
+	<body>
+		<label>Search for: <input id="cardsearchinput" type="text" /></label>
+		<div id="carddata">
+			<div class="card"><div class="nr">#1</div><div class="title">Like a Rolling Stone</div><div class="artist">Bob Dylan</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#2</div><div class="title">(I Can't Get No) Satisfaction</div><div class="artist">The Rolling Stones</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#3</div><div class="title">Imagine</div><div class="artist">John Lennon</div><div class="date">1971</div></div>
+			<div class="card"><div class="nr">#4</div><div class="title">What's Going On</div><div class="artist">Marvin Gaye</div><div class="date">1971</div></div>
+			<div class="card"><div class="nr">#5</div><div class="title">Respect</div><div class="artist">Aretha Franklin</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#6</div><div class="title">Good Vibrations</div><div class="artist">The Beach Boys</div><div class="date">1966</div></div>
+			<div class="card"><div class="nr">#7</div><div class="title">Johnny B. Goode</div><div class="artist">Chuck Berry</div><div class="date">1958</div></div>
+			<div class="card"><div class="nr">#8</div><div class="title">Hey Jude</div><div class="artist">The Beatles</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#9</div><div class="title">Smells Like Teen Spirit</div><div class="artist">Nirvana</div><div class="date">1991</div></div>
+			<div class="card"><div class="nr">#10</div><div class="title">What'd I Say</div><div class="artist">Ray Charles</div><div class="date">1959</div></div>
+			<div class="card"><div class="nr">#11</div><div class="title">My Generation</div><div class="artist">The Who</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#12</div><div class="title">A Change Is Gonna Come</div><div class="artist">Sam Cooke</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#13</div><div class="title">Yesterday</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#14</div><div class="title">Blowin' in the Wind</div><div class="artist">Bob Dylan</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#15</div><div class="title">London Calling</div><div class="artist">The Clash</div><div class="date">1980</div></div>
+			<div class="card"><div class="nr">#16</div><div class="title">I Want to Hold Your Hand</div><div class="artist">The Beatles</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#17</div><div class="title">Purple Haze</div><div class="artist">Jimi Hendrix</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#18</div><div class="title">Maybellene</div><div class="artist">Chuck Berry</div><div class="date">1955</div></div>
+			<div class="card"><div class="nr">#19</div><div class="title">Hound Dog</div><div class="artist">Elvis Presley</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#20</div><div class="title">Let It Be</div><div class="artist">The Beatles</div><div class="date">1970</div></div>
+			<div class="card"><div class="nr">#21</div><div class="title">Born to Run</div><div class="artist">Bruce Springsteen</div><div class="date">1975</div></div>
+			<div class="card"><div class="nr">#22</div><div class="title">Be My Baby</div><div class="artist">The Ronettes</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#23</div><div class="title">In My Life</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#24</div><div class="title">People Get Ready</div><div class="artist">The Impressions</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#25</div><div class="title">God Only Knows</div><div class="artist">The Beach Boys</div><div class="date">1966</div></div>
+			<div class="card"><div class="nr">#26</div><div class="title">A Day in the Life</div><div class="artist">The Beatles</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#27</div><div class="title">Layla</div><div class="artist">Derek and the Dominos</div><div class="date">1970</div></div>
+			<div class="card"><div class="nr">#28</div><div class="title">(Sittin' on) the Dock of the Bay</div><div class="artist">Otis Redding</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#29</div><div class="title">Help!</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#30</div><div class="title">I Walk the Line</div><div class="artist">Johnny Cash</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#31</div><div class="title">Stairway to Heaven</div><div class="artist">Led Zeppelin</div><div class="date">1971</div></div>
+			<div class="card"><div class="nr">#32</div><div class="title">Sympathy for the Devil</div><div class="artist">The Rolling Stones</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#33</div><div class="title">River Deep, Mountain High</div><div class="artist">Tina Turner</div><div class="date">1966</div></div>
+			<div class="card"><div class="nr">#34</div><div class="title">You've Lost That Lovin' Feeling</div><div class="artist">Righteous Brothers</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#35</div><div class="title">Light My Fire</div><div class="artist">The Doors</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#36</div><div class="title">One</div><div class="artist">U2</div><div class="date">1991</div></div>
+			<div class="card"><div class="nr">#37</div><div class="title">No Woman, No Cry</div><div class="artist">Bob Marley</div><div class="date">1975</div></div>
+			<div class="card"><div class="nr">#38</div><div class="title">Gimme Shelter</div><div class="artist">The Rolling Stones</div><div class="date">1969</div></div>
+			<div class="card"><div class="nr">#39</div><div class="title">That'll Be the Day</div><div class="artist">Buddy Holly</div><div class="date">1957</div></div>
+			<div class="card"><div class="nr">#40</div><div class="title">Dancin' in the Streets</div><div class="artist">Martha and the Vandellas</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#41</div><div class="title">The Weight</div><div class="artist">The Band</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#42</div><div class="title">Waterloo Sunset</div><div class="artist">The Kinks</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#43</div><div class="title">Tutti Frutti</div><div class="artist">Little Richard</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#44</div><div class="title">Georgia on My Mind</div><div class="artist">Ray Charles</div><div class="date">1960</div></div>
+			<div class="card"><div class="nr">#45</div><div class="title">Heartbreak Hotel</div><div class="artist">Elvis Presley</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#46</div><div class="title">Heroes</div><div class="artist">David Bowie</div><div class="date">1977</div></div>
+			<div class="card"><div class="nr">#47</div><div class="title">Bridge Over Troubled Water</div><div class="artist">Simon &amp; Garfunkel</div><div class="date">1970</div></div>
+			<div class="card"><div class="nr">#48</div><div class="title">All Along the Watchtower</div><div class="artist">Jimi Hendrix</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#49</div><div class="title">Hotel California</div><div class="artist">The Eagles</div><div class="date">1976</div></div>
+			<div class="card"><div class="nr">#50</div><div class="title">The Tracks of My Tears</div><div class="artist">Smokey Robinson</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#51</div><div class="title">The Message</div><div class="artist">Grandmaster Flash</div><div class="date">1982</div></div>
+			<div class="card"><div class="nr">#52</div><div class="title">When Doves Cry</div><div class="artist">Prince</div><div class="date">1984</div></div>
+			<div class="card"><div class="nr">#53</div><div class="title">Anarchy in the U.K.</div><div class="artist">The Sex Pistols</div><div class="date">1977</div></div>
+			<div class="card"><div class="nr">#54</div><div class="title">When a Man Loves a Woman</div><div class="artist">Percy Sledge</div><div class="date">1966</div></div>
+			<div class="card"><div class="nr">#55</div><div class="title">Louie Louie</div><div class="artist">The Kingsmen</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#56</div><div class="title">Long Tall Sally</div><div class="artist">Little Richard</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#57</div><div class="title">A Whiter Shade of Pale</div><div class="artist">Procol Harum</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#58</div><div class="title">Billie Jean</div><div class="artist">Michael Jackson</div><div class="date">1983</div></div>
+			<div class="card"><div class="nr">#59</div><div class="title">The Times They Are A-Changin'</div><div class="artist">Bob Dylan</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#60</div><div class="title">Let's Stay Together</div><div class="artist">Al Green</div><div class="date">1971</div></div>
+			<div class="card"><div class="nr">#61</div><div class="title">Whole Lotta Shakin' Going On</div><div class="artist">Jerry Lee Lewis</div><div class="date">1957</div></div>
+			<div class="card"><div class="nr">#62</div><div class="title">Bo Diddley</div><div class="artist">Bo Diddley</div><div class="date">1955</div></div>
+			<div class="card"><div class="nr">#63</div><div class="title">For What It's Worth</div><div class="artist">Buffalo Springfield</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#64</div><div class="title">She Loves You</div><div class="artist">The Beatles</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#65</div><div class="title">Sunshine of Your Love</div><div class="artist">Cream</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#66</div><div class="title">Redemption Song</div><div class="artist">Bob Marley</div><div class="date">1980</div></div>
+			<div class="card"><div class="nr">#67</div><div class="title">Jailhouse Rock</div><div class="artist">Elvis Presley</div><div class="date">1957</div></div>
+			<div class="card"><div class="nr">#68</div><div class="title">Tangled Up in Blue</div><div class="artist">Bob Dylan</div><div class="date">1975</div></div>
+			<div class="card"><div class="nr">#69</div><div class="title">Crying</div><div class="artist">Roy Orbison</div><div class="date">1961</div></div>
+			<div class="card"><div class="nr">#70</div><div class="title">Walk On By</div><div class="artist">Dionne Warwick</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#71</div><div class="title">California Girls</div><div class="artist">The Beach Boys</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#72</div><div class="title">Papa's Got a Brand New Bag</div><div class="artist">James Brown</div><div class="date">1966</div></div>
+			<div class="card"><div class="nr">#73</div><div class="title">Summertime Blues</div><div class="artist">Eddie Cochran</div><div class="date">1958</div></div>
+			<div class="card"><div class="nr">#74</div><div class="title">Superstition</div><div class="artist">Stevie Wonder</div><div class="date">1972</div></div>
+			<div class="card"><div class="nr">#75</div><div class="title">Whole Lotta Love</div><div class="artist">Led Zeppelin</div><div class="date">1969</div></div>
+			<div class="card"><div class="nr">#76</div><div class="title">Strawberry Fields Forever</div><div class="artist">The Beatles</div><div class="date">1967</div></div>
+			<div class="card"><div class="nr">#77</div><div class="title">Mystery Train</div><div class="artist">Elvis Presley</div><div class="date">1955</div></div>
+			<div class="card"><div class="nr">#78</div><div class="title">I Got You (I Feel Good)</div><div class="artist">James Brown</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#79</div><div class="title">Mr. Tambourine Man</div><div class="artist">The Byrds</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#80</div><div class="title">I Heard It Through the Grapevine</div><div class="artist">Marvin Gaye</div><div class="date">1968</div></div>
+			<div class="card"><div class="nr">#81</div><div class="title">Blueberry Hill</div><div class="artist">Fats Domino</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#82</div><div class="title">You Really Got Me</div><div class="artist">The Kinks</div><div class="date">1964</div></div>
+			<div class="card"><div class="nr">#83</div><div class="title">Norwegian Wood (This Bird Has Flown)</div><div class="artist">The Beatles</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#84</div><div class="title">Every Breath You Take</div><div class="artist">The Police</div><div class="date">1983</div></div>
+			<div class="card"><div class="nr">#85</div><div class="title">Crazy</div><div class="artist">Patsy Cline</div><div class="date">1961</div></div>
+			<div class="card"><div class="nr">#86</div><div class="title">Thunder Road</div><div class="artist">Bruce Springsteen</div><div class="date">1975</div></div>
+			<div class="card"><div class="nr">#87</div><div class="title">Ring of Fire</div><div class="artist">Johnny Cash</div><div class="date">1963</div></div>
+			<div class="card"><div class="nr">#88</div><div class="title">My Girl</div><div class="artist">The Temptations</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#89</div><div class="title">California Dreamin'</div><div class="artist">The Mamas &amp; The Papas</div><div class="date">1965</div></div>
+			<div class="card"><div class="nr">#90</div><div class="title">In the Still of the Night</div><div class="artist">The Five Satins</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#91</div><div class="title">Suspicious Minds</div><div class="artist">Elvis Presley</div><div class="date">1969</div></div>
+			<div class="card"><div class="nr">#92</div><div class="title">Blitzkrieg Bop</div><div class="artist">The Ramones</div><div class="date">1976</div></div>
+			<div class="card"><div class="nr">#93</div><div class="title">I Still Haven't Found What I'm Looking For</div><div class="artist">U2</div><div class="date">1987</div></div>
+			<div class="card"><div class="nr">#94</div><div class="title">Good Golly, Miss Molly</div><div class="artist">Little Richard</div><div class="date">1958</div></div>
+			<div class="card"><div class="nr">#95</div><div class="title">Blue Suede Shoes</div><div class="artist">Carl Perkins</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#96</div><div class="title">Great Balls of Fire</div><div class="artist">Jerry Lee Lewis</div><div class="date">1957</div></div>
+			<div class="card"><div class="nr">#97</div><div class="title">Roll Over Beethoven</div><div class="artist">Chuck Berry</div><div class="date">1956</div></div>
+			<div class="card"><div class="nr">#98</div><div class="title">Love and Happiness</div><div class="artist">Al Green</div><div class="date">1972</div></div>
+			<div class="card"><div class="nr">#99</div><div class="title">Fortunate Son</div><div class="artist">Creedence Clearwater Revival</div><div class="date">1969</div></div>
+			<div class="card"><div class="nr">#100</div><div class="title">You Can't Always Get What You Want</div><div class="artist">Rolling Stones</div><div class="date">1969</div></div>
+		</div>
+		<script>
+			$("#carddata").searcher({
+				itemSelector: ".card",
+				textSelector: "div",
+				inputSelector: "#cardsearchinput",
+				toggle: function(item, containsText) {
+					if (containsText)
+						$(item).fadeIn();
+					else
+						$(item).fadeOut();
+				}
+			});
+		</script>
+	</body>
+</html>

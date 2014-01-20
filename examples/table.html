@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Table example</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="../dist/jquery.searcher.js"></script>
+	</head>
+	<body>
+		<label>Search for: <input id="tablesearchinput" type="text" /></label>
+		<table id="tabledata">
+			<thead>
+				<tr>
+					<th class="nr">#</th>
+					<th class="title">Title</th>
+					<th class="artist">Artist</th>
+					<th class="date">Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>1</td><td>Like a Rolling Stone</td><td>Bob Dylan</td><td>1965</td></tr>
+				<tr><td>2</td><td>(I Can't Get No) Satisfaction</td><td>The Rolling Stones</td><td>1965</td></tr>
+				<tr><td>3</td><td>Imagine</td><td>John Lennon</td><td>1971</td></tr>
+				<tr><td>4</td><td>What's Going On</td><td>Marvin Gaye</td><td>1971</td></tr>
+				<tr><td>5</td><td>Respect</td><td>Aretha Franklin</td><td>1967</td></tr>
+				<tr><td>6</td><td>Good Vibrations</td><td>The Beach Boys</td><td>1966</td></tr>
+				<tr><td>7</td><td>Johnny B. Goode</td><td>Chuck Berry</td><td>1958</td></tr>
+				<tr><td>8</td><td>Hey Jude</td><td>The Beatles</td><td>1968</td></tr>
+				<tr><td>9</td><td>Smells Like Teen Spirit</td><td>Nirvana</td><td>1991</td></tr>
+				<tr><td>10</td><td>What'd I Say</td><td>Ray Charles</td><td>1959</td></tr>
+				<tr><td>11</td><td>My Generation</td><td>The Who</td><td>1965</td></tr>
+				<tr><td>12</td><td>A Change Is Gonna Come</td><td>Sam Cooke</td><td>1964</td></tr>
+				<tr><td>13</td><td>Yesterday</td><td>The Beatles</td><td>1965</td></tr>
+				<tr><td>14</td><td>Blowin' in the Wind</td><td>Bob Dylan</td><td>1963</td></tr>
+				<tr><td>15</td><td>London Calling</td><td>The Clash</td><td>1980</td></tr>
+				<tr><td>16</td><td>I Want to Hold Your Hand</td><td>The Beatles</td><td>1963</td></tr>
+				<tr><td>17</td><td>Purple Haze</td><td>Jimi Hendrix</td><td>1967</td></tr>
+				<tr><td>18</td><td>Maybellene</td><td>Chuck Berry</td><td>1955</td></tr>
+				<tr><td>19</td><td>Hound Dog</td><td>Elvis Presley</td><td>1956</td></tr>
+				<tr><td>20</td><td>Let It Be</td><td>The Beatles</td><td>1970</td></tr>
+				<tr><td>21</td><td>Born to Run</td><td>Bruce Springsteen</td><td>1975</td></tr>
+				<tr><td>22</td><td>Be My Baby</td><td>The Ronettes</td><td>1963</td></tr>
+				<tr><td>23</td><td>In My Life</td><td>The Beatles</td><td>1965</td></tr>
+				<tr><td>24</td><td>People Get Ready</td><td>The Impressions</td><td>1965</td></tr>
+				<tr><td>25</td><td>God Only Knows</td><td>The Beach Boys</td><td>1966</td></tr>
+				<tr><td>26</td><td>A Day in the Life</td><td>The Beatles</td><td>1967</td></tr>
+				<tr><td>27</td><td>Layla</td><td>Derek and the Dominos</td><td>1970</td></tr>
+				<tr><td>28</td><td>(Sittin' on) the Dock of the Bay</td><td>Otis Redding</td><td>1968</td></tr>
+				<tr><td>29</td><td>Help!</td><td>The Beatles</td><td>1965</td></tr>
+				<tr><td>30</td><td>I Walk the Line</td><td>Johnny Cash</td><td>1956</td></tr>
+				<tr><td>31</td><td>Stairway to Heaven</td><td>Led Zeppelin</td><td>1971</td></tr>
+				<tr><td>32</td><td>Sympathy for the Devil</td><td>The Rolling Stones</td><td>1968</td></tr>
+				<tr><td>33</td><td>River Deep, Mountain High</td><td>Tina Turner</td><td>1966</td></tr>
+				<tr><td>34</td><td>You've Lost That Lovin' Feeling</td><td>Righteous Brothers</td><td>1964</td></tr>
+				<tr><td>35</td><td>Light My Fire</td><td>The Doors</td><td>1967</td></tr>
+				<tr><td>36</td><td>One</td><td>U2</td><td>1991</td></tr>
+				<tr><td>37</td><td>No Woman, No Cry</td><td>Bob Marley</td><td>1975</td></tr>
+				<tr><td>38</td><td>Gimme Shelter</td><td>The Rolling Stones</td><td>1969</td></tr>
+				<tr><td>39</td><td>That'll Be the Day</td><td>Buddy Holly</td><td>1957</td></tr>
+				<tr><td>40</td><td>Dancin' in the Streets</td><td>Martha and the Vandellas</td><td>1964</td></tr>
+				<tr><td>41</td><td>The Weight</td><td>The Band</td><td>1968</td></tr>
+				<tr><td>42</td><td>Waterloo Sunset</td><td>The Kinks</td><td>1968</td></tr>
+				<tr><td>43</td><td>Tutti Frutti</td><td>Little Richard</td><td>1956</td></tr>
+				<tr><td>44</td><td>Georgia on My Mind</td><td>Ray Charles</td><td>1960</td></tr>
+				<tr><td>45</td><td>Heartbreak Hotel</td><td>Elvis Presley</td><td>1956</td></tr>
+				<tr><td>46</td><td>Heroes</td><td>David Bowie</td><td>1977</td></tr>
+				<tr><td>47</td><td>Bridge Over Troubled Water</td><td>Simon &amp; Garfunkel</td><td>1970</td></tr>
+				<tr><td>48</td><td>All Along the Watchtower</td><td>Jimi Hendrix</td><td>1968</td></tr>
+				<tr><td>49</td><td>Hotel California</td><td>The Eagles</td><td>1976</td></tr>
+				<tr><td>50</td><td>The Tracks of My Tears</td><td>Smokey Robinson</td><td>1965</td></tr>
+				<tr><td>51</td><td>The Message</td><td>Grandmaster Flash</td><td>1982</td></tr>
+				<tr><td>52</td><td>When Doves Cry</td><td>Prince</td><td>1984</td></tr>
+				<tr><td>53</td><td>Anarchy in the U.K.</td><td>The Sex Pistols</td><td>1977</td></tr>
+				<tr><td>54</td><td>When a Man Loves a Woman</td><td>Percy Sledge</td><td>1966</td></tr>
+				<tr><td>55</td><td>Louie Louie</td><td>The Kingsmen</td><td>1963</td></tr>
+				<tr><td>56</td><td>Long Tall Sally</td><td>Little Richard</td><td>1956</td></tr>
+				<tr><td>57</td><td>A Whiter Shade of Pale</td><td>Procol Harum</td><td>1967</td></tr>
+				<tr><td>58</td><td>Billie Jean</td><td>Michael Jackson</td><td>1983</td></tr>
+				<tr><td>59</td><td>The Times They Are A-Changin'</td><td>Bob Dylan</td><td>1964</td></tr>
+				<tr><td>60</td><td>Let's Stay Together</td><td>Al Green</td><td>1971</td></tr>
+				<tr><td>61</td><td>Whole Lotta Shakin' Going On</td><td>Jerry Lee Lewis</td><td>1957</td></tr>
+				<tr><td>62</td><td>Bo Diddley</td><td>Bo Diddley</td><td>1955</td></tr>
+				<tr><td>63</td><td>For What It's Worth</td><td>Buffalo Springfield</td><td>1967</td></tr>
+				<tr><td>64</td><td>She Loves You</td><td>The Beatles</td><td>1963</td></tr>
+				<tr><td>65</td><td>Sunshine of Your Love</td><td>Cream</td><td>1968</td></tr>
+				<tr><td>66</td><td>Redemption Song</td><td>Bob Marley</td><td>1980</td></tr>
+				<tr><td>67</td><td>Jailhouse Rock</td><td>Elvis Presley</td><td>1957</td></tr>
+				<tr><td>68</td><td>Tangled Up in Blue</td><td>Bob Dylan</td><td>1975</td></tr>
+				<tr><td>69</td><td>Crying</td><td>Roy Orbison</td><td>1961</td></tr>
+				<tr><td>70</td><td>Walk On By</td><td>Dionne Warwick</td><td>1964</td></tr>
+				<tr><td>71</td><td>California Girls</td><td>The Beach Boys</td><td>1965</td></tr>
+				<tr><td>72</td><td>Papa's Got a Brand New Bag</td><td>James Brown</td><td>1966</td></tr>
+				<tr><td>73</td><td>Summertime Blues</td><td>Eddie Cochran</td><td>1958</td></tr>
+				<tr><td>74</td><td>Superstition</td><td>Stevie Wonder</td><td>1972</td></tr>
+				<tr><td>75</td><td>Whole Lotta Love</td><td>Led Zeppelin</td><td>1969</td></tr>
+				<tr><td>76</td><td>Strawberry Fields Forever</td><td>The Beatles</td><td>1967</td></tr>
+				<tr><td>77</td><td>Mystery Train</td><td>Elvis Presley</td><td>1955</td></tr>
+				<tr><td>78</td><td>I Got You (I Feel Good)</td><td>James Brown</td><td>1965</td></tr>
+				<tr><td>79</td><td>Mr. Tambourine Man</td><td>The Byrds</td><td>1965</td></tr>
+				<tr><td>80</td><td>I Heard It Through the Grapevine</td><td>Marvin Gaye</td><td>1968</td></tr>
+				<tr><td>81</td><td>Blueberry Hill</td><td>Fats Domino</td><td>1956</td></tr>
+				<tr><td>82</td><td>You Really Got Me</td><td>The Kinks</td><td>1964</td></tr>
+				<tr><td>83</td><td>Norwegian Wood (This Bird Has Flown)</td><td>The Beatles</td><td>1965</td></tr>
+				<tr><td>84</td><td>Every Breath You Take</td><td>The Police</td><td>1983</td></tr>
+				<tr><td>85</td><td>Crazy</td><td>Patsy Cline</td><td>1961</td></tr>
+				<tr><td>86</td><td>Thunder Road</td><td>Bruce Springsteen</td><td>1975</td></tr>
+				<tr><td>87</td><td>Ring of Fire</td><td>Johnny Cash</td><td>1963</td></tr>
+				<tr><td>88</td><td>My Girl</td><td>The Temptations</td><td>1965</td></tr>
+				<tr><td>89</td><td>California Dreamin'</td><td>The Mamas &amp; The Papas</td><td>1965</td></tr>
+				<tr><td>90</td><td>In the Still of the Night</td><td>The Five Satins</td><td>1956</td></tr>
+				<tr><td>91</td><td>Suspicious Minds</td><td>Elvis Presley</td><td>1969</td></tr>
+				<tr><td>92</td><td>Blitzkrieg Bop</td><td>The Ramones</td><td>1976</td></tr>
+				<tr><td>93</td><td>I Still Haven't Found What I'm Looking For</td><td>U2</td><td>1987</td></tr>
+				<tr><td>94</td><td>Good Golly, Miss Molly</td><td>Little Richard</td><td>1958</td></tr>
+				<tr><td>95</td><td>Blue Suede Shoes</td><td>Carl Perkins</td><td>1956</td></tr>
+				<tr><td>96</td><td>Great Balls of Fire</td><td>Jerry Lee Lewis</td><td>1957</td></tr>
+				<tr><td>97</td><td>Roll Over Beethoven</td><td>Chuck Berry</td><td>1956</td></tr>
+				<tr><td>98</td><td>Love and Happiness</td><td>Al Green</td><td>1972</td></tr>
+				<tr><td>99</td><td>Fortunate Son</td><td>Creedence Clearwater Revival</td><td>1969</td></tr>
+				<tr><td>100</td><td>You Can't Always Get What You Want</td><td>Rolling Stones</td><td>1969</td></tr>
+			</tbody>
+		</table>
+		<script>
+			$("#tabledata").searcher({
+				inputSelector: "#tablesearchinput"
+			});
+		</script>
+	</body>
+</html>

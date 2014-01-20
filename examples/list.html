@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>List example</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="../dist/jquery.searcher.js"></script>
+	</head>
+	<body>
+		<label>Search for: <input id="listsearchinput" type="text" /></label>
+		<strong class="list-header">#. Title - Artist (Year)</strong>
+		<ol id="listdata" class="list-group">
+			<li>Like a Rolling Stone - Bob Dylan (1965)</li>
+			<li>(I Can't Get No) Satisfaction - The Rolling Stones (1965)</li>
+			<li>Imagine - John Lennon (1971)</li>
+			<li>What's Going On - Marvin Gaye (1971)</li>
+			<li>Respect - Aretha Franklin (1967)</li>
+			<li>Good Vibrations - The Beach Boys (1966)</li>
+			<li>Johnny B. Goode - Chuck Berry (1958)</li>
+			<li>Hey Jude - The Beatles (1968)</li>
+			<li>Smells Like Teen Spirit - Nirvana (1991)</li>
+			<li>What'd I Say - Ray Charles (1959)</li>
+			<li>My Generation - The Who (1965)</li>
+			<li>A Change Is Gonna Come - Sam Cooke (1964)</li>
+			<li>Yesterday - The Beatles (1965)</li>
+			<li>Blowin' in the Wind - Bob Dylan (1963)</li>
+			<li>London Calling - The Clash (1980)</li>
+			<li>I Want to Hold Your Hand - The Beatles (1963)</li>
+			<li>Purple Haze - Jimi Hendrix (1967)</li>
+			<li>Maybellene - Chuck Berry (1955)</li>
+			<li>Hound Dog - Elvis Presley (1956)</li>
+			<li>Let It Be - The Beatles (1970)</li>
+			<li>Born to Run - Bruce Springsteen (1975)</li>
+			<li>Be My Baby - The Ronettes (1963)</li>
+			<li>In My Life - The Beatles (1965)</li>
+			<li>People Get Ready - The Impressions (1965)</li>
+			<li>God Only Knows - The Beach Boys (1966)</li>
+			<li>A Day in the Life - The Beatles (1967)</li>
+			<li>Layla - Derek and the Dominos (1970)</li>
+			<li>(Sittin' on) the Dock of the Bay - Otis Redding (1968)</li>
+			<li>Help! - The Beatles (1965)</li>
+			<li>I Walk the Line - Johnny Cash (1956)</li>
+			<li>Stairway to Heaven - Led Zeppelin (1971)</li>
+			<li>Sympathy for the Devil - The Rolling Stones (1968)</li>
+			<li>River Deep, Mountain High - Tina Turner (1966)</li>
+			<li>You've Lost That Lovin' Feeling - Righteous Brothers (1964)</li>
+			<li>Light My Fire - The Doors (1967)</li>
+			<li>One - U2 (1991)</li>
+			<li>No Woman, No Cry - Bob Marley (1975)</li>
+			<li>Gimme Shelter - The Rolling Stones (1969)</li>
+			<li>That'll Be the Day - Buddy Holly (1957)</li>
+			<li>Dancin' in the Streets - Martha and the Vandellas (1964)</li>
+			<li>The Weight - The Band (1968)</li>
+			<li>Waterloo Sunset - The Kinks (1968)</li>
+			<li>Tutti Frutti - Little Richard (1956)</li>
+			<li>Georgia on My Mind - Ray Charles (1960)</li>
+			<li>Heartbreak Hotel - Elvis Presley (1956)</li>
+			<li>Heroes - David Bowie (1977)</li>
+			<li>Bridge Over Troubled Water - Simon &amp; Garfunkel (1970)</li>
+			<li>All Along the Watchtower - Jimi Hendrix (1968)</li>
+			<li>Hotel California - The Eagles (1976)</li>
+			<li>The Tracks of My Tears - Smokey Robinson (1965)</li>
+			<li>The Message - Grandmaster Flash (1982)</li>
+			<li>When Doves Cry - Prince (1984)</li>
+			<li>Anarchy in the U.K. - The Sex Pistols (1977)</li>
+			<li>When a Man Loves a Woman - Percy Sledge (1966)</li>
+			<li>Louie Louie - The Kingsmen (1963)</li>
+			<li>Long Tall Sally - Little Richard (1956)</li>
+			<li>A Whiter Shade of Pale - Procol Harum (1967)</li>
+			<li>Billie Jean - Michael Jackson (1983)</li>
+			<li>The Times They Are A-Changin' - Bob Dylan (1964)</li>
+			<li>Let's Stay Together - Al Green (1971)</li>
+			<li>Whole Lotta Shakin' Going On - Jerry Lee Lewis (1957)</li>
+			<li>Bo Diddley - Bo Diddley (1955)</li>
+			<li>For What It's Worth - Buffalo Springfield (1967)</li>
+			<li>She Loves You - The Beatles (1963)</li>
+			<li>Sunshine of Your Love - Cream (1968)</li>
+			<li>Redemption Song - Bob Marley (1980)</li>
+			<li>Jailhouse Rock - Elvis Presley (1957)</li>
+			<li>Tangled Up in Blue - Bob Dylan (1975)</li>
+			<li>Crying - Roy Orbison (1961)</li>
+			<li>Walk On By - Dionne Warwick (1964)</li>
+			<li>California Girls - The Beach Boys (1965)</li>
+			<li>Papa's Got a Brand New Bag - James Brown (1966)</li>
+			<li>Summertime Blues - Eddie Cochran (1958)</li>
+			<li>Superstition - Stevie Wonder (1972)</li>
+			<li>Whole Lotta Love - Led Zeppelin (1969)</li>
+			<li>Strawberry Fields Forever - The Beatles (1967)</li>
+			<li>Mystery Train - Elvis Presley (1955)</li>
+			<li>I Got You (I Feel Good) - James Brown (1965)</li>
+			<li>Mr. Tambourine Man - The Byrds (1965)</li>
+			<li>I Heard It Through the Grapevine - Marvin Gaye (1968)</li>
+			<li>Blueberry Hill - Fats Domino (1956)</li>
+			<li>You Really Got Me - The Kinks (1964)</li>
+			<li>Norwegian Wood (This Bird Has Flown) - The Beatles (1965)</li>
+			<li>Every Breath You Take - The Police (1983)</li>
+			<li>Crazy - Patsy Cline (1961)</li>
+			<li>Thunder Road - Bruce Springsteen (1975)</li>
+			<li>Ring of Fire - Johnny Cash (1963)</li>
+			<li>My Girl - The Temptations (1965)</li>
+			<li>California Dreamin' - The Mamas &amp; The Papas (1965)</li>
+			<li>In the Still of the Night - The Five Satins (1956)</li>
+			<li>Suspicious Minds - Elvis Presley (1969)</li>
+			<li>Blitzkrieg Bop - The Ramones (1976)</li>
+			<li>I Still Haven't Found What I'm Looking For - U2 (1987)</li>
+			<li>Good Golly, Miss Molly - Little Richard (1958)</li>
+			<li>Blue Suede Shoes - Carl Perkins (1956)</li>
+			<li>Great Balls of Fire - Jerry Lee Lewis (1957)</li>
+			<li>Roll Over Beethoven - Chuck Berry (1956)</li>
+			<li>Love and Happiness - Al Green (1972)</li>
+			<li>Fortunate Son - Creedence Clearwater Revival (1969)</li>
+			<li>You Can't Always Get What You Want - Rolling Stones (1969)</li>
+		</ol>
+		<script>
+			$("#listdata").searcher({
+				itemSelector: "li",
+				textSelector: "",
+				inputSelector: "#listsearchinput"
+			});
+		</script>
+	</body>
+</html>
