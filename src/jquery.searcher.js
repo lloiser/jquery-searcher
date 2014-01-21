@@ -7,13 +7,22 @@ function factory($) {
 	var pluginName = "searcher",
 		dataKey = "plugin_" + pluginName,
 		defaults = {
+			// selector for the item element
 			itemSelector: "tbody > tr",
+			// selector for the text elements
 			textSelector: "td",
+			// selector for the input
 			inputSelector: "",
+			// determines whether the search is case sensitive or not
 			caseSensitive: false,
+			// function to toggle the visibility of the item
 			toggle: function(item, containsText) {
 				$(item).toggle(containsText);
-			}
+			},
+			// a html string used to highlight the search term in the text
+			// e.g: "<span class='highlight'>$1</span>"
+			// $1 will be replaced with the search term
+			highlight: ""
 		};
 
 	function Searcher(element, options)
@@ -41,41 +50,56 @@ function factory($) {
 		{
 			var options = this.options,
 				textSelector = options.textSelector,
-				caseSensitive = options.caseSensitive,
 				toggle = options.toggle,
-				value = this._$input.val();
+				highlight = options.highlight;
 
-			// lower text for case insensitive searches
-			if (!caseSensitive)
-				value = value.toLowerCase();
+			// build the regex for searching
+			var flags = "gm" + (!options.caseSensitive ? "i" : "");
+			var value = new RegExp("(" + escapeRegExp(this._$input.val()) + ")", flags);
 
-			if (value === this._lastValue)
+			if (value.toString() === this._lastValue)
 				return; // nothing has changed
 
-			this._lastValue = value;
+			this._lastValue = value.toString();
 
 			this._$element
 				.find(options.itemSelector)
 				.each(function eachItem() {
 					var $item = $(this),
-						$textElements = $item;
+						$textElements = textSelector ? $item.find(textSelector) : $item,
+						itemContainsText = false;
 
-					if (textSelector)
-						$textElements = $item.find(textSelector);
+					$textElements = $textElements.each(function eachTextElements() {
+						var $text = $(this),
+							text = $text.text(),
+							containsText = value.test(text);
 
-					$textElements = $textElements.filter(function eachTextElements() {
-						// lower all texts for case insensitive searches
-						var text = $(this).text();
-						if (!caseSensitive)
-							text = text.toLowerCase();
+						itemContainsText = itemContainsText || containsText;
 
-						return text.indexOf(value) >= 0;
+						var data = $text.data("original");
+						if (containsText && highlight)
+						{
+							if (!data)
+								$text.data("original", $text.html());
+							$text.html(text.replace(value, highlight));
+						}
+						else if (!containsText && data)
+						{
+							$text.html(data);
+							$text.removeData("original");
+						}
 					});
 
-					toggle(this, $textElements.length > 0);
+					toggle(this, itemContainsText);
 				});
 		}
 	};
+
+	function escapeRegExp(text)
+	{
+		// see https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions
+		return text.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+	}
 
 	$.fn[pluginName] = function pluginHandler(options) {
 		return this.each(function() {

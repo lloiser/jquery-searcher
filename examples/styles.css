@@ -88,3 +88,8 @@ label
 	font-size: 14px;
 	color: inherit;
 }
+
+.highlight
+{
+	background-color: #fd0;
+}
