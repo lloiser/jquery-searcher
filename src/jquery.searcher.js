@@ -35,13 +35,21 @@ function factory($) {
 	}
 
 	Searcher.prototype = {
+		dispose: function()
+		{
+			// unbind all events
+			this._$input.unbind("input change keyup", this._fn);
+			// toggle all elements with true
+			var options = this.options;
+			this._$element.find(options.itemSelector).each(function() { options.toggle(this, true); });
+		},
 		_create: function()
 		{
 			this._$element = $(this.element);
 
-			// find the input and listen to various events
-			var fn = $.proxy(this._onValueChange, this);
-			this._$input = $(this.options.inputSelector).bind("input change keyup", fn);
+			// find the input and bind to various events
+			this._fn = $.proxy(this._onValueChange, this);
+			this._$input = $(this.options.inputSelector).bind("input change keyup", this._fn);
 
 			// remember the last entered value
 			this._lastValue = "";
@@ -104,12 +112,17 @@ function factory($) {
 	$.fn[pluginName] = function pluginHandler(options) {
 		return this.each(function() {
 			var searcher = $.data(this, dataKey);
-			// either create a new searcher
-			if (!searcher)
-				$.data(this, dataKey, new Searcher(this, options));
-			// or update the options
-			else
+			if (searcher && options === "dispose")
+			{
+				searcher.dispose();
+				$.removeData(this, dataKey);
+			}
+			// update the options of the existing
+			else if (searcher)
 				$.extend(searcher.options, options);
+			// create a new searcher
+			else if (typeof(options) === "object")
+				$.data(this, dataKey, new Searcher(this, options));
 		});
 	};
 
