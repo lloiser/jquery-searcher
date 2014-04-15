@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Searcher Tests</title>
+	<link rel="stylesheet" href="libs/qunit.css" media="screen">
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="libs/qunit.js"></script>
+	<script src="../src/jquery.searcher.js"></script>
+	<style type="text/css">
+		#sandbox
+		{
+			/* height: 1px;
+			visibility: hidden;
+			overflow: hidden; */
+		}
+	</style>
+</head>
+<body>
+	<div id="qunit"></div>
+
+	<div id="sandbox">
+		<input id="testinput" type="text" />
+
+		<table id="testtable">
+			<tbody>
+				<tr><td>1</td><td>Like a Rolling Stone</td><td>Bob Dylan</td><td>1965</td></tr>
+				<tr><td>2</td><td>(I Can't Get No) Satisfaction</td><td>The Rolling Stones</td><td>1965</td></tr>
+				<tr><td>3</td><td>Imagine</td><td>John Lennon</td><td>1971</td></tr>
+				<tr><td>4</td><td>What's Going On</td><td>Marvin Gaye</td><td>1971</td></tr>
+				<tr><td>5</td><td>Respect</td><td>Aretha Franklin</td><td>1967</td></tr>
+			</tbody>
+		</table>
+
+		<ul id="testlist">
+			<li><span>1</span><span>Like a Rolling Stone</span><span>Bob Dylan</span><span>1965</span></li>
+			<li><span>2</span><span>(I Can't Get No) Satisfaction</span><span>The Rolling Stones</span><span>1965</span></li>
+			<li><span>3</span><span>Imagine</span><span>John Lennon</span><span>1971</span></li>
+			<li><span>4</span><span>What's Going On</span><span>Marvin Gaye</span><span>1971</span></li>
+			<li><span>5</span><span>Respect</span><span>Aretha Franklin</span><span>1967</span></li>
+		</ul>
+
+		<div id="testany">
+			<div class="item">
+				<span>1</span>
+				<b>Like a Rolling Stone</b>
+				<div>Bob Dylan</div>
+				<p>1965</p>
+			</div>
+			<div class="item">
+				<span>2</span>
+				<b>(I Can't Get No) Satisfaction</b>
+				<div>The Rolling Stones</div>
+				<p>1965</p>
+			</div>
+			<div class="item">
+				<span>3</span>
+				<b>Imagine</b>
+				<div>John Lennon</div>
+				<p>1971</p>
+			</div>
+			<div class="item">
+				<span>4</span>
+				<b>What's Going On</b>
+				<div>Marvin Gaye</div>
+				<p>1971</p>
+			</div>
+			<div class="item">
+				<span>5</span>
+				<b>Respect</b>
+				<div>Aretha Franklin</div>
+				<p>1967</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="tests.js"></script>
+</body>
+</html>

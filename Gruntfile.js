@@ -24,11 +24,6 @@ module.exports = function(grunt) {
 			all: ["src/*.js"]
 		},
 
-		// clean existing files	in "dist" folder
-		clean: {
-			files: ["dist/*"]
-		},
-
 		// concat the source file(s) and the banner and copy it to the "dist" folder
 		concat: {
 			options: {
@@ -49,17 +44,24 @@ module.exports = function(grunt) {
 				src: "<%= concat.dist.dest %>",
 				dest: "dist/<%= filename %>.min.js"
 			}
-		}
+		},
+
+		// tests
+	    qunit: {
+			all: ['tests/**/*.html']
+	    }
 	});
 
 	// Load all tasks
-	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-jshint");
+	grunt.loadNpmTasks("grunt-contrib-qunit");
 
 	// Default task(s).
-	grunt.registerTask("default", ["jshint", "clean", "concat", "uglify"]);
+	grunt.registerTask("default", ["build", "test"]);
+	grunt.registerTask("build", ["jshint", "concat", "uglify"]);
+	grunt.registerTask("test", ["qunit"]);
 
 };
 

@@ -80,7 +80,7 @@ function factory($) {
 					$textElements = $textElements.each(function eachTextElements() {
 						var $text = $(this),
 							text = $text.text(),
-							containsText = value.test(text);
+							containsText = !!text.match(value);
 
 						itemContainsText = itemContainsText || containsText;
 
