@@ -1,4 +1,8 @@
+/*global module, test, ok, equal, deepEqual */
+
 (function() {
+
+	"use strict";
 
 	module("jQuery Searcher Tests", {
 		teardown: function()
@@ -76,7 +80,7 @@
 
 	function basicTests($items)
 	{
-		// THEN: nothing should have changed for the table items (all 5 are visible)
+		// THEN: nothing should have changed for the items (all 5 are visible)
 		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
 
 		// WHEN: I change the text in the input to "a"
@@ -178,7 +182,7 @@
 
 	function caseSensitiveTests($items)
 	{
-		// THEN: nothing should have changed for the table items (all 5 are visible)
+		// THEN: nothing should have changed for the items (all 5 are visible)
 		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
 
 		// WHEN: I change the text in the input to "l"
@@ -241,7 +245,7 @@
 		equal($elements.length, expected, expected + " item(s) should be visible");
 		$elements.each(function(i) {
 			assertItem($(this), testData[expectedData[i]]);
-		})
+		});
 	}
 
 	function assertItem($item, expectedData)

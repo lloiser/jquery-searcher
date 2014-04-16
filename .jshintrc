@@ -9,6 +9,5 @@
     "browser":   true,
     "noarg":     true,
     "noempty":   true,
-    "quotmark":  "double",
-    "predef":    ["jQuery", "module", "define"]
+    "quotmark":  "double"
 }

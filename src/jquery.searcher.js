@@ -1,9 +1,11 @@
+/*global jQuery, module, define */
+
 (function IIFE() {
 
 "use strict";
 
-function factory($) {
-
+function factory($)
+{
 	var pluginName = "searcher",
 		dataKey = "plugin_" + pluginName,
 		defaults = {
