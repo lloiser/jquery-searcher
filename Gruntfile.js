@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: ".jshintrc"
 			},
-			all: ["src/*.js"]
+			all: ["src/*.js", "tests/tests.js"]
 		},
 
 		// concat the source file(s) and the banner and copy it to the "dist" folder
