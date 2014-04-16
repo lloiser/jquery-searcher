@@ -1,12 +1,13 @@
 (function() {
 
 	module("jQuery Searcher Tests", {
-		teardown: function() {
+		teardown: function()
+		{
 			$table.searcher("dispose");
 			$list.searcher("dispose");
 			$any.searcher("dispose");
 		}
-	})
+	});
 
 	var inputSelector = "#testinput";
 	var $input = $(inputSelector);
@@ -27,7 +28,7 @@
 	 */
 
 	test("plugin exists", function() {
-		// on any jquery wrapped element
+		// on any jQuery wrapped element
 		ok($table.searcher);
 		ok($list.searcher);
 		ok($any.searcher);
@@ -108,7 +109,108 @@
 	 * OPTION caseSensitive
 	 */
 
-	// TODO
+	test("caseSensitive table", function() {
+		// GIVEN: a connected table and input
+		$table.searcher({
+			inputSelector: inputSelector,
+			// AND: case sensitive search is activated
+			caseSensitive: true
+		});
+
+		// WHEN: I run some tests
+		var $items = $table.find("tr");
+		caseSensitiveTests($items);
+
+		// wHEN: I change the caseSensitive option to false
+		$table.searcher({
+			caseSensitive: false
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	test("caseSensitive list", function() {
+		// GIVEN: a connected list and input
+		$list.searcher({
+			inputSelector: inputSelector,
+			itemSelector: "li",
+			textSelector: "",
+			// AND: case sensitive search is activated
+			caseSensitive: true
+		});
+
+		// WHEN: I run some tests
+		var $items = $list.find("li");
+		caseSensitiveTests($items);
+
+		// wHEN: I change the caseSensitive option to false
+		$list.searcher({
+			caseSensitive: false
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	test("caseSensitive any", function() {
+		// GIVEN: a connected list-like structure and input
+		$any.searcher({
+			inputSelector: inputSelector,
+			itemSelector: ".item",
+			textSelector: "> *",
+			// AND: case sensitive search is activated
+			caseSensitive: true
+		});
+
+		// WHEN: I run some tests
+		var $items = $any.find(".item");
+		caseSensitiveTests($items);
+
+		// wHEN: I change the caseSensitive option to false
+		$any.searcher({
+			caseSensitive: false
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	function caseSensitiveTests($items)
+	{
+		// THEN: nothing should have changed for the table items (all 5 are visible)
+		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+
+		// WHEN: I change the text in the input to "l"
+		write("l");
+		// THEN: "Bob Dylan", "The Rolling Stones" and "Aretha Franklin" are visible
+		assertItems($items.filter(":visible"), ["dylan", "stones", "franklin"]);
+
+		// WHEN: I change the text in the input to "L"
+		write("L");
+		// THEN: "Bob Dylan" (title contains "L") and "John Lennon" are visible
+		assertItems($items.filter(":visible"), ["dylan", "lennon"]);
+
+		// WHEN: I change the text in the input to "rolling"
+		write("rolling");
+		// THEN: no item is visible because non of the items contains "rolling"
+		assertItems($items.filter(":visible"), []);
+
+		// WHEN: I change the text in the input to "Rolling"
+		write("Rolling");
+		// THEN: "Bob Dylan" (title contains "Rolling") and "The Rolling Stones" are visible
+		assertItems($items.filter(":visible"), ["dylan", "stones"]);
+
+		// WHEN: I change the text in the input to "1971"
+		write("1971");
+		// THEN: "John Lennon" and "Aretha Franklin" are visible (date is "1971")
+		assertItems($items.filter(":visible"), ["lennon", "gaye"]);
+
+		// WHEN: I clear the text in the input
+		write("");
+		// THEN: all items should be visible again
+		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+	}
 
 	/*
 	 * OPTION toggle
@@ -151,4 +253,4 @@
 		deepEqual(actualData, expectedData);
 	}
 
-}());
+}).call(this);

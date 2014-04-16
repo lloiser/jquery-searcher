@@ -16,7 +16,8 @@ function factory($) {
 			// determines whether the search is case sensitive or not
 			caseSensitive: false,
 			// function to toggle the visibility of the item
-			toggle: function(item, containsText) {
+			toggle: function(item, containsText)
+			{
 				$(item).toggle(containsText);
 			},
 			// a html string used to highlight the search term in the text
@@ -38,18 +39,22 @@ function factory($) {
 		dispose: function()
 		{
 			// unbind all events
-			this._$input.unbind("input change keyup", this._fn);
+			this._$input.unbind("." + pluginName);
 			// toggle all elements with true
-			var options = this.options;
-			this._$element.find(options.itemSelector).each(function() { options.toggle(this, true); });
+			var options = this.options,
+				toggle = options.toggle;
+			this._$element.find(options.itemSelector).each(function() { toggle(this, true); });
 		},
 		_create: function()
 		{
+			var options = this.options;
+
 			this._$element = $(this.element);
 
 			// find the input and bind to various events
 			this._fn = $.proxy(this._onValueChange, this);
-			this._$input = $(this.options.inputSelector).bind("input change keyup", this._fn);
+			var eventNames = "input." + pluginName + " change." + pluginName + " keyup." + pluginName;
+			this._$input = $(options.inputSelector).bind(eventNames, this._fn);
 
 			// remember the last entered value
 			this._lastValue = "";
@@ -61,7 +66,7 @@ function factory($) {
 				toggle = options.toggle,
 				highlight = options.highlight;
 
-			// build the regex for searching
+			// build the regular expression for searching
 			var flags = "gm" + (!options.caseSensitive ? "i" : "");
 			var value = new RegExp("(" + escapeRegExp(this._$input.val()) + ")", flags);
 
@@ -77,7 +82,7 @@ function factory($) {
 						$textElements = textSelector ? $item.find(textSelector) : $item,
 						itemContainsText = false;
 
-					$textElements = $textElements.each(function eachTextElements() {
+					$textElements = $textElements.each(function eachTextElement() {
 						var $text = $(this),
 							text = $text.text(),
 							containsText = !!text.match(value);
