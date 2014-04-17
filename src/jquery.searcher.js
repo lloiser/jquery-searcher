@@ -21,11 +21,7 @@ function factory($)
 			toggle: function(item, containsText)
 			{
 				$(item).toggle(containsText);
-			},
-			// a html string used to highlight the search term in the text
-			// e.g: "<span class='highlight'>$1</span>"
-			// $1 will be replaced with the search term
-			highlight: ""
+			}
 		};
 
 	function Searcher(element, options)
@@ -69,8 +65,7 @@ function factory($)
 		{
 			var options = this.options,
 				textSelector = options.textSelector,
-				toggle = options.toggle || defaults.toggle,
-				highlight = options.highlight;
+				toggle = options.toggle || defaults.toggle;
 
 			// build the regular expression for searching
 			var flags = "gm" + (!options.caseSensitive ? "i" : "");
@@ -89,24 +84,8 @@ function factory($)
 						itemContainsText = false;
 
 					$textElements = $textElements.each(function eachTextElement() {
-						var $text = $(this),
-							text = $text.text(),
-							containsText = !!text.match(value);
-
-						itemContainsText = itemContainsText || containsText;
-
-						var data = $text.data("original");
-						if (containsText && highlight)
-						{
-							if (!data)
-								$text.data("original", $text.html());
-							$text.html(text.replace(value, highlight));
-						}
-						else if (!containsText && data)
-						{
-							$text.html(data);
-							$text.removeData("original");
-						}
+						itemContainsText = itemContainsText || !!$(this).text().match(value);
+						return !itemContainsText; // stop if at least one text element contains the text
 					});
 
 					toggle(this, itemContainsText);
