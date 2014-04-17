@@ -220,7 +220,112 @@
 	 * OPTION toggle
 	 */
 
-	// TODO
+	test("toggle table", function() {
+		// GIVEN: a connected table and input
+		$table.searcher({
+			inputSelector: inputSelector,
+			// AND: a custom toggle function
+			toggle: function(item, containsText)
+			{
+				$(item).toggleClass("containsText", containsText);
+			}
+		});
+
+		// WHEN: I run some tests
+		var $items = $table.find("tr");
+		toggleTests($items);
+
+		// wHEN: I change the toggle function back to it's default
+		$table.searcher({
+			toggle: null
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	test("toggle list", function() {
+		// GIVEN: a connected list and input
+		$list.searcher({
+			inputSelector: inputSelector,
+			itemSelector: "li",
+			textSelector: "",
+			// AND: a custom toggle function
+			toggle: function(item, containsText)
+			{
+				$(item).toggleClass("containsText", containsText);
+			}
+		});
+
+		// WHEN: I run some tests
+		var $items = $list.find("li");
+		toggleTests($items);
+
+		// wHEN: I change the toggle function back to it's default
+		$list.searcher({
+			toggle: null
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	test("toggle any", function() {
+		// GIVEN: a connected list-like structure and input
+		$any.searcher({
+			inputSelector: inputSelector,
+			itemSelector: ".item",
+			textSelector: "> *",
+			// AND: a custom toggle function
+			toggle: function(item, containsText)
+			{
+				$(item).toggleClass("containsText", containsText);
+			}
+		});
+
+		// WHEN: I run some tests
+		var $items = $any.find(".item");
+		toggleTests($items);
+
+		// wHEN: I change the toggle function back to it's default
+		$any.searcher({
+			toggle: null
+		});
+
+		// THEN: all basic tests should work
+		basicTests($items);
+	});
+
+	function toggleTests($items)
+	{
+		// THEN: nothing has changed for the items (all 5 are visible)
+		assertItems($items.filter(".containsText"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+
+		// WHEN: I change the text in the input to "a"
+		write("a");
+		// THEN: all items have the "containsText" class because everyone contains an "a"
+		assertItems($items.filter(".containsText"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+
+		// WHEN: I change the text in the input to "rolling"
+		write("rolling");
+		// THEN: "Bob Dylan" (title contains "Rolling") and "The Rolling Stones" have the "containsText" class
+		assertItems($items.filter(".containsText"), ["dylan", "stones"]);
+
+		// WHEN: I change the text in the input to "john"
+		write("john");
+		// THEN: only "John Lennon" has the "containsText" class
+		assertItems($items.filter(".containsText"), ["lennon"]);
+
+		// WHEN: I change the text in the input to "1971"
+		write("1971");
+		// THEN: "John Lennon" and "Aretha Franklin" have the "containsText" class (date is "1971")
+		assertItems($items.filter(".containsText"), ["lennon", "gaye"]);
+
+		// WHEN: I clear the text in the input
+		write("");
+		// THEN: all items have the "containsText" class
+		assertItems($items.filter(".containsText"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+	}
 
 	/*
 	 * OPTION highlight

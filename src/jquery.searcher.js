@@ -44,7 +44,7 @@ function factory($)
 			this._$input.unbind("." + pluginName);
 			// toggle all elements with true
 			var options = this.options,
-				toggle = options.toggle;
+				toggle = options.toggle || defaults.toggle;
 			this._$element.find(options.itemSelector).each(function() { toggle(this, true); });
 		},
 		_create: function()
@@ -60,12 +60,16 @@ function factory($)
 
 			// remember the last entered value
 			this._lastValue = "";
+
+			// call the toggle with true for all items on startup
+			var toggle = options.toggle || defaults.toggle;
+			this._$element.find(options.itemSelector).each(function() { toggle(this, true); });
 		},
 		_onValueChange: function()
 		{
 			var options = this.options,
 				textSelector = options.textSelector,
-				toggle = options.toggle,
+				toggle = options.toggle || defaults.toggle,
 				highlight = options.highlight;
 
 			// build the regular expression for searching

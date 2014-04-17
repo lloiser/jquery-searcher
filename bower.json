@@ -16,5 +16,8 @@
 
 	"dependencies": {
 		"jquery": ">=1.4.3"
+	},
+	"devDependencies": {
+		"qunitjs": "~1.14.0"
 	}
 }
