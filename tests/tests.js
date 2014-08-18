@@ -328,12 +328,6 @@
 	}
 
 	/*
-	 * OPTION highlight
-	 */
-
-	// TODO
-
-	/*
 	 * HELPERS
 	 */
 

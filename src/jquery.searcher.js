@@ -1,5 +1,3 @@
-/*global jQuery, module, define */
-
 (function IIFE() {
 
 "use strict";
