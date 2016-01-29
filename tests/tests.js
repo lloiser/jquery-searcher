@@ -328,6 +328,45 @@
 	}
 
 	/*
+	 * public function "filter"
+	 */
+
+	test("filter function", function() {
+		// GIVEN: a connected table and input
+		$table.searcher({
+			inputSelector: inputSelector
+		});
+
+		// WHEN: I run some tests
+		var $items = $table.find("tr");
+
+		// WHEN: I filter the items with "a"
+		$table.searcher("filter", "a");
+		// THEN: all items are visible because everyone contains an "a"
+		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+
+		// WHEN: I filter the items with "rolling"
+		$table.searcher("filter", "rolling");
+		// THEN: "Bob Dylan" (title contains "Rolling") and "The Rolling Stones" are visible
+		assertItems($items.filter(":visible"), ["dylan", "stones"]);
+
+		// WHEN: I filter the items with "john"
+		$table.searcher("filter", "john");
+		// THEN: only "John Lennon" is visible
+		assertItems($items.filter(":visible"), ["lennon"]);
+
+		// WHEN: I filter the items with "1971"
+		$table.searcher("filter", "1971");
+		// THEN: "John Lennon" and "Aretha Franklin" are visible (date is "1971")
+		assertItems($items.filter(":visible"), ["lennon", "gaye"]);
+
+		// WHEN: I filter the items with ""
+		$table.searcher("filter", "");
+		// THEN: all items should be visible again
+		assertItems($items.filter(":visible"), ["dylan", "stones", "lennon", "gaye", "franklin"]);
+	});
+
+	/*
 	 * HELPERS
 	 */
 
