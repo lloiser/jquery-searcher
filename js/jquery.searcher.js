@@ -45,6 +45,33 @@ function factory($)
 				toggle = options.toggle || defaults.toggle;
 			this._$element.find(options.itemSelector).each(function() { toggle(this, true); });
 		},
+		filter: function(value)
+		{
+			this._lastValue = value;
+
+			var options = this.options,
+				textSelector = options.textSelector,
+				toggle = options.toggle || defaults.toggle;
+
+			// build the regular expression for searching
+			var flags = "gm" + (!options.caseSensitive ? "i" : "");
+			var regex = new RegExp("(" + escapeRegExp(value) + ")", flags);
+
+			this._$element
+				.find(options.itemSelector)
+				.each(function eachItem() {
+					var $item = $(this),
+						$textElements = textSelector ? $item.find(textSelector) : $item,
+						itemContainsText = false;
+
+					$textElements = $textElements.each(function eachTextElement() {
+						itemContainsText = itemContainsText || !!$(this).text().match(regex);
+						return !itemContainsText; // stop if at least one text element contains the text
+					});
+
+					toggle(this, itemContainsText);
+				});
+		},
 		_create: function()
 		{
 			var options = this.options;
@@ -57,7 +84,7 @@ function factory($)
 			this._$input = $(options.inputSelector).bind(eventNames, this._fn);
 
 			// remember the last entered value
-			this._lastValue = "";
+			this._lastValue = null;
 
 			// call the toggle with true for all items on startup
 			var toggle = options.toggle || defaults.toggle;
@@ -65,33 +92,11 @@ function factory($)
 		},
 		_onValueChange: function()
 		{
-			var options = this.options,
-				textSelector = options.textSelector,
-				toggle = options.toggle || defaults.toggle;
-
-			// build the regular expression for searching
-			var flags = "gm" + (!options.caseSensitive ? "i" : "");
-			var value = new RegExp("(" + escapeRegExp(this._$input.val()) + ")", flags);
-
-			if (value.toString() === this._lastValue)
+			var value = this._$input.val();
+			if (value === this._lastValue)
 				return; // nothing has changed
 
-			this._lastValue = value.toString();
-
-			this._$element
-				.find(options.itemSelector)
-				.each(function eachItem() {
-					var $item = $(this),
-						$textElements = textSelector ? $item.find(textSelector) : $item,
-						itemContainsText = false;
-
-					$textElements = $textElements.each(function eachTextElement() {
-						itemContainsText = itemContainsText || !!$(this).text().match(value);
-						return !itemContainsText; // stop if at least one text element contains the text
-					});
-
-					toggle(this, itemContainsText);
-				});
+			this.filter(value);
 		}
 	};
 
@@ -102,19 +107,25 @@ function factory($)
 	}
 
 	$.fn[pluginName] = function pluginHandler(options) {
+		var args = Array.prototype.slice.call(arguments, 1);
 		return this.each(function() {
 			var searcher = $.data(this, dataKey);
-			if (searcher && options === "dispose")
+			var t = typeof(options);
+			if (t === "string" && searcher)
 			{
-				searcher.dispose();
-				$.removeData(this, dataKey);
+				searcher[options].apply(searcher, args);
+				if (options === "dispose")
+					$.removeData(this, dataKey);
 			}
-			// update the options of the existing
-			else if (searcher)
-				$.extend(searcher.options, options);
-			// create a new searcher
-			else if (typeof(options) === "object")
-				$.data(this, dataKey, new Searcher(this, options));
+			else if (t === "object")
+			{
+				if (!searcher)
+					// create a new searcher
+					$.data(this, dataKey, new Searcher(this, options));
+				else
+					// update the options of the existing
+					$.extend(searcher.options, options);
+			}
 		});
 	};
 
